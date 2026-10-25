@@ -1,0 +1,1089 @@
+{
+  "source": "SH17 public Kaggle sample; selection.json seed 42, first file-list page",
+  "reviewer": "visual review; no detector pseudo-labels",
+  "status": "candidate annotations; not an independent test; scene and cross-source audit pending",
+  "coordinate_system": "xyxy pixels in aspect-preserving preview, max width 1400 and max height 1000, rounded dimensions",
+  "classes": {
+    "1": "helmet",
+    "2": "head_without_helmet",
+    "3": "industrial_respirator",
+    "4": "cigarette"
+  },
+  "policy": "Visible object extent; head includes ordinary caps/hairnets/headscarves but excludes neck and trailing hair/scarf. Full-face respirator includes facepiece and cartridges, not head straps. Person class intentionally omitted: separate person detector. Excluded images have no exported labels. All records remain ineligible for training until dataset audit and split assignment.",
+  "records": [
+    {
+      "index": 0,
+      "image": "pexels-photo-10040003.jpeg",
+      "decision": "keep",
+      "group": "sh17-bottling",
+      "reason": "Hairnet head; surgical mask is a respirator negative",
+      "boxes": [
+        [
+          2,
+          430,
+          312,
+          516,
+          417
+        ]
+      ],
+      "source_sha256": "3de4263b628424b241d41b29e8a7632e27c6a52df301e9b91965836c2b751f8b",
+      "source_label_sha256": "f0189e81dde525731d896e7889b967baf0ed82e0b581de0ae7cf5b6326d23b20",
+      "image_size": [
+        5072,
+        7138
+      ],
+      "preview_size": [
+        711,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.66526020 0.36450000 0.12095640 0.10500000"
+      ]
+    },
+    {
+      "index": 1,
+      "image": "pexels-photo-10664320.jpeg",
+      "decision": "keep",
+      "group": "sh17-steel-shop",
+      "reason": "Ordinary baseball cap is not a protective helmet",
+      "boxes": [
+        [
+          2,
+          292,
+          542,
+          380,
+          632
+        ]
+      ],
+      "source_sha256": "24bc65f830c383b84c9fa1e24581abb8cc52913dfc7d2bebf82fba8f877ee2a6",
+      "source_label_sha256": "807bd53ba7dc7d1feb8b17c9002dc061dac1f8c552680e92326c1ab7aa8b2a9c",
+      "image_size": [
+        5472,
+        3648
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.24000000 0.62915327 0.06285714 0.09646302"
+      ]
+    },
+    {
+      "index": 2,
+      "image": "pexels-photo-10307257.jpeg",
+      "decision": "exclude",
+      "group": "sh17-market",
+      "reason": "Crowded background and partially occluded heads; uncertain completeness",
+      "source_sha256": "39dc1ae4b9d6716e802d7cc121a5348765f8f1be8c3eb9e098ba3fcd7e0af88b",
+      "source_label_sha256": "bd869cf36d60033be2dfdba07af25b3ff27517be007c40eb64c5f78dd9482538",
+      "image_size": [
+        3431,
+        5147
+      ],
+      "preview_size": [
+        667,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 3,
+      "image": "construction-site-build-construction-work-159306.jpeg",
+      "decision": "keep",
+      "group": "sh17-tiltshift-construction",
+      "reason": "Two helmets; remove duplicate head labels on helmeted people",
+      "boxes": [
+        [
+          1,
+          620,
+          388,
+          666,
+          426
+        ],
+        [
+          1,
+          889,
+          331,
+          947,
+          374
+        ]
+      ],
+      "source_sha256": "cf7735536398020369793d112e5c0ee8fc3be09a6687b20717835ea5a87789a7",
+      "source_label_sha256": "27fe6720b982ba7ee10665ab89bddd80756e44ea2e3558201c50131bf85209bb",
+      "image_size": [
+        4608,
+        3072
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "1 0.45928571 0.43622722 0.03285714 0.04072883",
+        "1 0.65571429 0.37781350 0.04142857 0.04608789"
+      ]
+    },
+    {
+      "index": 4,
+      "image": "pexels-photo-1018568.jpeg",
+      "decision": "keep",
+      "group": "sh17-pharmacy",
+      "reason": "Two hairnet heads; hanging surgical mask is not respirator",
+      "boxes": [
+        [
+          2,
+          610,
+          194,
+          735,
+          352
+        ],
+        [
+          2,
+          967,
+          177,
+          1122,
+          346
+        ]
+      ],
+      "source_sha256": "b30fbce0eda03b9d188932dccea730f033e421e01854560e164825e788887bb0",
+      "source_label_sha256": "3ef2f6d0c4a9b64235e131e60a45b349ee8d27c7686e8da9ff1fd8c203f48e09",
+      "image_size": [
+        2000,
+        1214
+      ],
+      "preview_size": [
+        1400,
+        850
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.48035714 0.32117647 0.08928571 0.18588235",
+        "2 0.74607143 0.30764706 0.11071429 0.19882353"
+      ]
+    },
+    {
+      "index": 5,
+      "image": "pexels-photo-10239293.jpeg",
+      "decision": "keep",
+      "group": "sh17-dirty-hands",
+      "reason": "Verified target-negative hands closeup",
+      "boxes": [],
+      "source_sha256": "ececf5297417e71aff5720362fe65a9ed4891cf31cadb49de079d5b95227e907",
+      "source_label_sha256": "3d5972731fbc90b01c6434562b9f692a4399940ef35f6e255aa7684a94b520c5",
+      "image_size": [
+        5184,
+        3456
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": []
+    },
+    {
+      "index": 6,
+      "image": "pexels-photo-10474856.jpeg",
+      "decision": "keep",
+      "group": "sh17-grinder",
+      "reason": "Verified target-negative grinder, sparks and hands",
+      "boxes": [],
+      "source_sha256": "7b23457d5f6710f2a2708f0285c7e9769e4f9169b845f25e047831825c28b455",
+      "source_label_sha256": "8b8d5b648a332c69ffc708b82a89da4aa6e5ad57d958c7891ba59473acfb0fb0",
+      "image_size": [
+        6720,
+        4480
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": []
+    },
+    {
+      "index": 7,
+      "image": "pexels-photo-10039997.jpeg",
+      "decision": "exclude",
+      "group": "sh17-bottling",
+      "reason": "Additional heavily occluded person on left; background heads out of focus",
+      "source_sha256": "73bae62176d5f405fc9b8ba048c9325c0a6476d4970788cec6f2293ca7d2f1a2",
+      "source_label_sha256": "52289bdad52d05616734e3f57ab62fdf8a7141638a38b37327705ee1a7f9fc52",
+      "image_size": [
+        5168,
+        3448
+      ],
+      "preview_size": [
+        1400,
+        934
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 8,
+      "image": "pexels-photo-1043573.jpeg",
+      "decision": "keep",
+      "group": "sh17-smoking-man",
+      "reason": "Ordinary cap and visible cigarette; add missing cigarette box",
+      "boxes": [
+        [
+          2,
+          491,
+          244,
+          656,
+          444
+        ],
+        [
+          4,
+          560,
+          405,
+          583,
+          430
+        ]
+      ],
+      "source_sha256": "2e75f855b380cd9d9d06911a7ffe2bb0e4e53671f78a04d9952004f44154ef60",
+      "source_label_sha256": "97d4f5d443ff614f99601d313c7a661b137c8c13bdebfcdb004bdac2736d49ae",
+      "image_size": [
+        6000,
+        4000
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.40964286 0.36870311 0.11785714 0.21436227",
+        "4 0.40821429 0.44748124 0.01642857 0.02679528"
+      ]
+    },
+    {
+      "index": 9,
+      "image": "pexels-photo-10045513.jpeg",
+      "decision": "keep",
+      "group": "sh17-orange-worker",
+      "reason": "Helmet in low light; phone in hand is not cigarette",
+      "boxes": [
+        [
+          1,
+          180,
+          331,
+          241,
+          394
+        ]
+      ],
+      "source_sha256": "e08c7daec4850f354241f0ac39670d0685259160a6843f40e0e03cc654d938ba",
+      "source_label_sha256": "32db2edfd8230ee33c43dd3e55a2bd7f59b9b337fd7033fecf5d36a78a9dc67d",
+      "image_size": [
+        2666,
+        4000
+      ],
+      "preview_size": [
+        666,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "1 0.31606607 0.36250000 0.09159159 0.06300000"
+      ]
+    },
+    {
+      "index": 10,
+      "image": "construction-site-build-construction-work-159358.jpeg",
+      "decision": "exclude",
+      "group": "sh17-tiltshift-construction",
+      "reason": "Strong artificial depth blur on two workers; unreliable object boundaries",
+      "source_sha256": "53b1d7323c407e21ceaddc6073276da23853b39d8cdc53752fea06aad86826ad",
+      "source_label_sha256": "feaae85e449d3f3fce87cb485a8bfa6a85e46e56595823ac9452eb7c82f92540",
+      "image_size": [
+        4476,
+        2985
+      ],
+      "preview_size": [
+        1400,
+        934
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 11,
+      "image": "pexels-photo-10039988.jpeg",
+      "decision": "exclude",
+      "group": "sh17-mill",
+      "reason": "Native-resolution head crop is severely defocused; exclude rather than trust coarse outline",
+      "source_sha256": "07123f95822bca63371dc36fbf9889a3ae62357e2ff5a4f226152cd85e903e2e",
+      "source_label_sha256": "ae5454c7ab9e190192c9597cfef91a97c8fdd599b6d4983b1213b13cfcd1b2b0",
+      "image_size": [
+        5123,
+        7680
+      ],
+      "preview_size": [
+        667,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 12,
+      "image": "pexels-photo-10376164.jpeg",
+      "decision": "exclude",
+      "group": "sh17-stressed-office",
+      "reason": "Head occluded by arms and reflection; low relevance for first clean pool",
+      "source_sha256": "cf2abcc56ef5d852d0cce5083baabf495ba64f69cf48cadc0fc876769078e010",
+      "source_label_sha256": "5e41e6e1b4d799c67bfba216557258010781d08614c829d7b3baff620c43e1a8",
+      "image_size": [
+        6720,
+        4480
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 13,
+      "image": "pexels-photo-10375953.jpeg",
+      "decision": "keep",
+      "group": "sh17-office-meeting",
+      "reason": "Three bare heads; representative of repeated office series",
+      "boxes": [
+        [
+          2,
+          274,
+          228,
+          462,
+          415
+        ],
+        [
+          2,
+          487,
+          316,
+          600,
+          459
+        ],
+        [
+          2,
+          1127,
+          159,
+          1395,
+          390
+        ]
+      ],
+      "source_sha256": "8cfcf9aa353830389f669e0195505d151b656fdf56303f99ed42c26b5be20785",
+      "source_label_sha256": "61943daf27ceab7f26641a073ef3daded7607f3f26bcf62dc4f51a15637bc036",
+      "image_size": [
+        5584,
+        3723
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.26285714 0.34458735 0.13428571 0.20042872",
+        "2 0.38821429 0.41532690 0.08071429 0.15326902",
+        "2 0.90071429 0.29421222 0.19142857 0.24758842"
+      ]
+    },
+    {
+      "index": 14,
+      "image": "pexels-photo-10202856.jpeg",
+      "decision": "exclude",
+      "group": "sh17-rebar",
+      "reason": "Partial worker at left, blurred background worker and occluded helmets; six source helmet boxes cannot be trusted",
+      "source_sha256": "947a705eb77add65d912bf11d2f3604e3a300e847abdc7850ca95aeecce311f4",
+      "source_label_sha256": "efb68f4a38647f61066138d743985740d531bd2912198bc88ea9c88dd4d0b5c0",
+      "image_size": [
+        5614,
+        3733
+      ],
+      "preview_size": [
+        1400,
+        931
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 15,
+      "image": "pexels-photo-10573466.png",
+      "decision": "keep",
+      "group": "sh17-brick-worker",
+      "reason": "Visible head without helmet while bending",
+      "boxes": [
+        [
+          2,
+          217,
+          258,
+          313,
+          369
+        ]
+      ],
+      "source_sha256": "98284da4f06c29f1cf939fb014d9079bc8362188750718270c8639a11d2e1c56",
+      "source_label_sha256": "71ddefde855955081249ca4beaca85d39540e2850e25e3350a0d9957e8fa682f",
+      "image_size": [
+        3456,
+        5184
+      ],
+      "preview_size": [
+        667,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.39730135 0.31350000 0.14392804 0.11100000"
+      ]
+    },
+    {
+      "index": 16,
+      "image": "pexels-photo-10375942.jpeg",
+      "decision": "exclude",
+      "group": "sh17-office-meeting",
+      "reason": "Redundant office series; keep representative 10375953",
+      "source_sha256": "18b4e9ffa51f984bb3576b168a28444b537769b76f8aa1a9db2a86e1fdef1d8c",
+      "source_label_sha256": "8f011b70848f694dabdd552a35966c2022552b5839a1e832d32267f7e2bfae3a",
+      "image_size": [
+        6720,
+        4480
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 17,
+      "image": "pexels-photo-10698291.jpeg",
+      "decision": "exclude",
+      "group": "sh17-train-platform",
+      "reason": "Multiple dark background and clipped heads; uncertain completeness",
+      "source_sha256": "87a965abd0ca7cb293a56a6f71ad6585e874d7224672e3ec262a37e079abba4b",
+      "source_label_sha256": "c4347bf3423803f526ab59b415ac1643e6ea32fc24dc6dede46d7e834355f0f0",
+      "image_size": [
+        4672,
+        7008
+      ],
+      "preview_size": [
+        667,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 18,
+      "image": "pexels-photo-10347168.jpeg",
+      "decision": "keep",
+      "group": "sh17-headscarf-office",
+      "reason": "Headscarf is not protective helmet; pen and clipboard are negatives",
+      "boxes": [
+        [
+          2,
+          271,
+          115,
+          434,
+          306
+        ]
+      ],
+      "source_sha256": "8fa22a31c62af7a134e7e2ede30f0e0107e06a7f9847a250779577595b163664",
+      "source_label_sha256": "ad783015ac1a99f9f219c8b22614d073f6417ee194d24b58b82ebd93f746ee45",
+      "image_size": [
+        4084,
+        6116
+      ],
+      "preview_size": [
+        668,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.52769461 0.21050000 0.24401198 0.19100000"
+      ]
+    },
+    {
+      "index": 19,
+      "image": "pexels-photo-1018565.jpeg",
+      "decision": "keep",
+      "group": "sh17-pharmacy",
+      "reason": "Two heads, not three; remove overlapping duplicate source head",
+      "boxes": [
+        [
+          2,
+          292,
+          332,
+          425,
+          485
+        ],
+        [
+          2,
+          394,
+          311,
+          566,
+          477
+        ]
+      ],
+      "source_sha256": "0de73a471c3fac828df3f3676ab7e187ff9dab248b23175bb981ec07430c018b",
+      "source_label_sha256": "53df70208f200e2e3772437b91727f8dcb13e832bef8bb7cc5136dc97acb0b22",
+      "image_size": [
+        1335,
+        2000
+      ],
+      "preview_size": [
+        668,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.53667665 0.40850000 0.19910180 0.15300000",
+        "2 0.71856287 0.39400000 0.25748503 0.16600000"
+      ]
+    },
+    {
+      "index": 20,
+      "image": "pexels-photo-10130754.jpeg",
+      "decision": "exclude",
+      "group": "sh17-lineworkers",
+      "reason": "Right helmet occluded by raised arm; keep clearer view 10130751",
+      "source_sha256": "bb67c19d65cff690efdcd5ef752d929dc132b7202aba9bd440554eeefe17f115",
+      "source_label_sha256": "3f98e60c3ae51e713497a2659247c6bba2bd9ce28fa0147498bfa45c80324499",
+      "image_size": [
+        6016,
+        4016
+      ],
+      "preview_size": [
+        1400,
+        935
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 21,
+      "image": "pexels-photo-10375955.jpeg",
+      "decision": "exclude",
+      "group": "sh17-office-meeting",
+      "reason": "Redundant office series; keep representative 10375953",
+      "source_sha256": "5dbb5dd2c0878991fb991c6a8bd283d31a5831a904d5915cff338d4435e738b5",
+      "source_label_sha256": "e885f746480684765113c1efe5ff214580b5f19d98b46b84aac9b04b62204ff2",
+      "image_size": [
+        6611,
+        4407
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 22,
+      "image": "pexels-photo-1038548.jpeg",
+      "decision": "exclude",
+      "group": "sh17-sunset-platform",
+      "reason": "Strong defocus and backlight; missing background heads in source",
+      "source_sha256": "80a230644c018f1c267a8c225efa99830f02f4bdc7c2082f4fadc051b40de65a",
+      "source_label_sha256": "10751daeb3e687fb482c453c61ed0b24384d8cce54f6d14b8af5f9b95f5c987a",
+      "image_size": [
+        5184,
+        3456
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 23,
+      "image": "pexels-photo-1046151.jpeg",
+      "decision": "exclude",
+      "group": "sh17-video-camera",
+      "reason": "Defocused foreground head and screen depiction; low relevance",
+      "source_sha256": "6101c5b01d91e4d0c53495cc2979afcb6f1aacdf28528414425fc6dbd611fce5",
+      "source_label_sha256": "96ec02dc4961c05a31fb1403ef8399638cc15ac2f67b1abbf8ccb5c840155c73",
+      "image_size": [
+        6000,
+        4000
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 24,
+      "image": "pexels-photo-10599872.jpeg",
+      "decision": "exclude",
+      "group": "sh17-mirror",
+      "reason": "Mirror depiction and plants occluding head; low relevance for first pool",
+      "source_sha256": "82b0c11f8735346d47c9d4f6c9536c9b429b219adc08fdc483f2fc2001992df9",
+      "source_label_sha256": "689a789ce2dce80ec7216e9b561f613013cd83a616f4619b97d4238f9e25cbc6",
+      "image_size": [
+        3456,
+        5184
+      ],
+      "preview_size": [
+        667,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 25,
+      "image": "pexels-photo-10676692.jpeg",
+      "decision": "exclude",
+      "group": "sh17-pole-workers",
+      "reason": "Distant headwear cannot be classified confidently without guessing",
+      "source_sha256": "231f5f5c2b33f8c29c4047496c2b34cd1f1cad4f4e8355fdeaeb43106b9570f3",
+      "source_label_sha256": "6d69b2d2bb7c69685083b1d2cdb8206dc1d021a4b0d24a131b7e90d53db5cbe3",
+      "image_size": [
+        4000,
+        6000
+      ],
+      "preview_size": [
+        667,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 26,
+      "image": "pexels-photo-10615322.jpeg",
+      "decision": "exclude",
+      "group": "sh17-road-workers",
+      "reason": "Protective vs motorcycle headwear, tiny passengers and occluded people need separate detailed audit",
+      "source_sha256": "38b40a22869f400af50db3c77afa6fc72317be68752cbd0d3c67384617703adf",
+      "source_label_sha256": "1e4eeadd228430ae6161a9dfa71e7ee1a28b137b25d4059f810b0a43754643d0",
+      "image_size": [
+        7952,
+        5304
+      ],
+      "preview_size": [
+        1400,
+        934
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 27,
+      "image": "pexels-photo-10347167.jpeg",
+      "decision": "keep",
+      "group": "sh17-headscarf-office",
+      "reason": "Two headscarf heads; source misses right head",
+      "boxes": [
+        [
+          2,
+          317,
+          269,
+          467,
+          435
+        ],
+        [
+          2,
+          665,
+          260,
+          777,
+          429
+        ]
+      ],
+      "source_sha256": "c2d9e199f4962f74e463b2925481a2dc9e6e4a2b816ad6054970b08ac3019e7c",
+      "source_label_sha256": "6049a49b55c3ff8bcb38bfaa532bdc1adff72cade9508af04fd7ada130476884",
+      "image_size": [
+        6240,
+        4160
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.28000000 0.37727760 0.10714286 0.17792069",
+        "2 0.51500000 0.36923901 0.08000000 0.18113612"
+      ]
+    },
+    {
+      "index": 28,
+      "image": "pexels-photo-10375931.jpeg",
+      "decision": "exclude",
+      "group": "sh17-office-meeting",
+      "reason": "Redundant office series; keep representative 10375953",
+      "source_sha256": "ab4dee093db5a51de8fe3b6a955b81265866fe5b32da01b98b545a50445824fd",
+      "source_label_sha256": "594e7ecad45009f71f54414743fad16228573510d19dac00f937d2034d125787",
+      "image_size": [
+        6490,
+        4327
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 29,
+      "image": "building-construction-building-site-constructing.jpg",
+      "decision": "keep",
+      "group": "sh17-concrete-closeup",
+      "reason": "Verified target-negative hands and concrete chute",
+      "boxes": [],
+      "source_sha256": "3b8f662aae2f3b9456ec4ee58f639ac32b65ba4d34aed8213f2eb77f6545758e",
+      "source_label_sha256": "4382bb2ea4c68843fc94e6c0f1204c41391c6577be0d0caba66f20c1accb4a08",
+      "image_size": [
+        5760,
+        3840
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": []
+    },
+    {
+      "index": 30,
+      "image": "pexels-photo-10101932.jpeg",
+      "decision": "exclude",
+      "group": "sh17-plant-aerial",
+      "reason": "Tiny partly hidden worker; object identity and boundaries uncertain",
+      "source_sha256": "91cde3625c9aecf333357013e5c1118701ae2af0cf5160efaa7db994a83aff85",
+      "source_label_sha256": "8be35c3aba138b840cda8242c8a8d62c9b9ce935cf5bc8a7b42dc09599dbb8d0",
+      "image_size": [
+        5464,
+        3627
+      ],
+      "preview_size": [
+        1400,
+        929
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 31,
+      "image": "pexels-photo-10401534.jpeg",
+      "decision": "exclude",
+      "group": "sh17-scaffold",
+      "reason": "Additional clipped person at left and occluded fifth head; completeness uncertain",
+      "source_sha256": "596dd01eb9aec548f3eeb0aed925ec540242f881797b4047d2a06b79b21c164e",
+      "source_label_sha256": "aef01cc1210bb7f7ca2e06e501b981cf886393da64c32d07bbd21d582fa0f938",
+      "image_size": [
+        5983,
+        3852
+      ],
+      "preview_size": [
+        1400,
+        901
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 32,
+      "image": "pexels-photo-10088317.jpeg",
+      "decision": "keep",
+      "group": "sh17-fullface-respirator",
+      "reason": "One head without hardhat and full-face industrial respirator; remove duplicate source head and add respirator",
+      "boxes": [
+        [
+          2,
+          210,
+          132,
+          437,
+          444
+        ],
+        [
+          3,
+          167,
+          190,
+          479,
+          464
+        ]
+      ],
+      "source_sha256": "15beb5ff9fdd59f199de5cb97f29c9b58f902c2dcc75727957b7229f4cf2c177",
+      "source_label_sha256": "fd092bd4c0abf8349b03262f2e6e37286edf080c0ccbe4e0f564e16f823f7776",
+      "image_size": [
+        3648,
+        5472
+      ],
+      "preview_size": [
+        667,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.48500750 0.28800000 0.34032984 0.31200000",
+        "3 0.48425787 0.32700000 0.46776612 0.27400000"
+      ]
+    },
+    {
+      "index": 33,
+      "image": "pexels-photo-10600181.jpeg",
+      "decision": "keep",
+      "group": "sh17-cosmetology",
+      "reason": "Two heads; source misses reclining client. Instrument is not cigarette",
+      "boxes": [
+        [
+          2,
+          203,
+          85,
+          436,
+          402
+        ],
+        [
+          2,
+          271,
+          650,
+          555,
+          896
+        ]
+      ],
+      "source_sha256": "c9278b42fc88cf17da2bb05e0c4d12db19ab7b3d713528e6e8428b39b1bfdbc1",
+      "source_label_sha256": "c470522f5282f4201b301d7ec4c58542350c77e9feb84450213de5065b6f7083",
+      "image_size": [
+        3666,
+        5491
+      ],
+      "preview_size": [
+        668,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.47829341 0.24350000 0.34880240 0.31700000",
+        "2 0.61826347 0.77300000 0.42514970 0.24600000"
+      ]
+    },
+    {
+      "index": 34,
+      "image": "pexels-photo-10341108.jpeg",
+      "decision": "keep",
+      "group": "sh17-headscarf-office",
+      "reason": "Headscarf head; pen is not cigarette",
+      "boxes": [
+        [
+          2,
+          379,
+          66,
+          564,
+          318
+        ]
+      ],
+      "source_sha256": "e216d5db596c7c6275062aedf3f03b9248a9fc576d040fe64c5f601cbf116161",
+      "source_label_sha256": "77d0218767054dd1021a06c469619109ee57944bf9a68e41992e145afab86f1b",
+      "image_size": [
+        2799,
+        3976
+      ],
+      "preview_size": [
+        704,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.66974432 0.19200000 0.26278409 0.25200000"
+      ]
+    },
+    {
+      "index": 35,
+      "image": "pexels-photo-10375946.jpeg",
+      "decision": "exclude",
+      "group": "sh17-office-meeting",
+      "reason": "Redundant office series; keep representative 10375953",
+      "source_sha256": "ce38218d6207f67d9caacef310abe44bc26e7a8051dad687ffdacc8810678399",
+      "source_label_sha256": "060ebf9c12418f5cfac1c2a1dd2295155514054175069c2774138296304fa22b",
+      "image_size": [
+        6720,
+        4480
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 36,
+      "image": "construction-site-build-construction-work-159375.jpeg",
+      "decision": "keep",
+      "group": "sh17-tiltshift-construction",
+      "reason": "One visible helmet; remove head label for helmeted person",
+      "boxes": [
+        [
+          1,
+          733,
+          389,
+          781,
+          424
+        ]
+      ],
+      "source_sha256": "23bced25833769f0b411b6e2957de59bc76f56876e0254a527511b96cbd644fb",
+      "source_label_sha256": "f101a3a6d53b2071541466fcb2a97773747897a33684539e598a14036dd359e4",
+      "image_size": [
+        4608,
+        3072
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "1 0.54071429 0.43569132 0.03428571 0.03751340"
+      ]
+    },
+    {
+      "index": 37,
+      "image": "pexels-photo-10451772.jpeg",
+      "decision": "exclude",
+      "group": "sh17-outdoor-workers",
+      "reason": "Multiple background people and clipped foreground head; source completeness uncertain",
+      "source_sha256": "35e23600814beed221a327f301534615e3809071d540d7df9c46f0ec0d60a31d",
+      "source_label_sha256": "7a2c21acb119c54dd372a3e0aae37f6852b6f086df936b9627e80e300aa9b162",
+      "image_size": [
+        8156,
+        5438
+      ],
+      "preview_size": [
+        1400,
+        933
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": []
+    },
+    {
+      "index": 38,
+      "image": "pexels-photo-10130751.jpeg",
+      "decision": "keep",
+      "group": "sh17-lineworkers",
+      "reason": "Two clearly visible hardhats; remove head labels for helmeted people",
+      "boxes": [
+        [
+          1,
+          146,
+          255,
+          190,
+          286
+        ],
+        [
+          1,
+          248,
+          233,
+          288,
+          262
+        ]
+      ],
+      "source_sha256": "3ebccce9cd3eda31d4a9c15a73f6d05fe196d4e005296e40c4726f9274d81698",
+      "source_label_sha256": "0576c8772d7569ee4eee473aadbe591f230e0762daad01bdf8e7d060c756d0dd",
+      "image_size": [
+        4016,
+        6016
+      ],
+      "preview_size": [
+        668,
+        1000
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "1 0.25149701 0.27050000 0.06586826 0.03100000",
+        "1 0.40119760 0.24750000 0.05988024 0.02900000"
+      ]
+    },
+    {
+      "index": 39,
+      "image": "floor-flooring-hand-man-1388944.jpeg",
+      "decision": "keep",
+      "group": "sh17-flooring",
+      "reason": "Verified target-negative hands, pencil and hammer",
+      "boxes": [],
+      "source_sha256": "5cae66dd9f5b9e8b8b33cd58049e3e24b991f68d7bf9c79eb7ba9e4fdde46403",
+      "source_label_sha256": "9cbe0cfc5f1e79c3cd73a994de455c800b84aeeefcc785a0f059ccd1ace3ba75",
+      "image_size": [
+        3358,
+        2016
+      ],
+      "preview_size": [
+        1400,
+        841
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": []
+    }
+  ],
+  "summary": {
+    "reviewed": 40,
+    "kept": 20,
+    "excluded": 20,
+    "target_objects": {
+      "2": 18,
+      "1": 6,
+      "4": 1,
+      "3": 1
+    },
+    "negative_images": 4,
+    "scene_groups_kept": 16
+  },
+  "review_method": "Full-frame previews of all 40 images; native-resolution object crops for 27 proposed boxes, then corrections and exclusion of defocused mill head. Manual agent annotations, no detector output; no independent human verification."
+}

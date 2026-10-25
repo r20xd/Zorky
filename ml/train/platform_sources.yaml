@@ -1,0 +1,50 @@
+# Спецификация источников нового кандидата, не data.yaml для model.train().
+# Используем готовые аннотации; ручные подборки SH17/pics не включаются.
+version: 2
+target_classes:
+  0: person
+  1: helmet
+  2: head
+  3: face_protection
+  4: cigarette
+
+face_protection:
+  description: Маски и респираторы, размеченные исходным классом Mask
+  excludes:
+    - Coverall (комбинезон)
+    - очки и щитки без соответствующей разметки в источнике
+  limitation: Наличие объекта не подтверждает пригодность защиты для конкретной среды
+
+sources:
+  - uri: ul://xia-yu/datasets/helmet
+    url: https://platform.ultralytics.com/xia-yu/datasets/helmet
+    source_classes: [helmet, no helmet]
+    class_mapping: {0: 1, 1: 2}
+    bbox_semantics: В просмотренных примерах helmet охватывает голову вместе с каской
+    compatibility: До интеграции проверить привязку рамок к человеку; не считать рамки касками без головы
+  - uri: ul://asim-naseer/datasets/cigarette
+    url: https://platform.ultralytics.com/asim-naseer/datasets/cigarette
+    source_classes: [cigarette, face, smoking]
+    class_mapping: {0: 4, 1: null, 2: null}
+    compatibility: face не переводить автоматически в head; smoking не переводить в cigarette
+  - uri: ul://sparrow-ferret/datasets/fangchen
+    url: https://platform.ultralytics.com/sparrow-ferret/datasets/fangchen
+    source_classes: [Coverall, Mask]
+    class_mapping: {0: null, 1: 3}
+    compatibility: Mask объединяет маски и респираторы; Coverall не является защитой лица
+
+preparation:
+  manual_reannotation: false
+  include_manual_sh17_or_pics: false
+  unlabelled_images: exclude_unless_verified_negative
+  invalid_bbox: reject_and_report
+  duplicates: audit_before_split
+  incomplete_target_annotation: >-
+    Не склеивать частично размеченные источники вслепую: отсутствие метки чужого
+    целевого класса не доказывает отсутствие объекта. Перед общей моделью
+    выбрать обучение отдельных детекторов или поддержку частичной разметки.
+  working_weights: preserve_until_candidate_validation
+  contract: >-
+    Код события no_respirator и подпись Нет респиратора пока остаются прежними.
+    Новую семантику отсутствия защиты лица согласовать с владельцем проекта и отразить
+    в контракте и интерфейсе перед включением нового кандидата в продукт.

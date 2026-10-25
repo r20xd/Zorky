@@ -1,0 +1,34 @@
+# Правила воркера по камерам. Камеры, которых нет в cameras, берут default;
+# нет и default — все зарегистрированные правила без параметров.
+# Правило не перечислено — для камеры выключено. Подробнее — README.md, раздел «Правила».
+default:
+  danger_zone: {zone_kind: danger}
+  no_helmet: {}
+  no_respirator: {}
+  smoking: {}
+  # Пороги подобраны на GMDCSA-24 (ml/eval); fall/immobile считают отношение сторон рамки
+  # в долях кадра (кадр 16:9), поэтому upright/lying меньше «физических» 0.8/1.2
+  fall: {transition_s: 0.5, min_ratio_change: 1.5, upright_ratio: 0.4, lying_ratio: 0.7}
+  immobile: {duration_s: 10.0, lying_ratio: 0.7}
+  fence_crossing: {zone_kind: fence, min_frames: 3}
+  distress_signal: {hold_s: 5}
+# Выключено по умолчанию до контрольной точки: проверены только на синтетике или дали ложные
+# срабатывания. Код правил на месте. Включить: специалист по охране труда отмечает правило
+# на экране «Участки» (бэкенд отдаёт воркеру выбор), параметры берутся отсюда; для всех камер
+# сразу — перенести строку в default.
+optional:
+  # H6 (25.10): на настоящих роликах 0 верных и 3 ложных срабатывания, на рендере NVIDIA 45 ложных
+  vehicle_proximity: {gap_static: 0.3, gap_moving: 0.8, min_frames: 10}
+  running: {zone_kind: machinery, speed_threshold: 1.5}
+  vehicle_in_zone: {zone_kind: danger, min_frames: 10}
+  vehicle_collision: {ttc_s: 3.0, min_frames: 3}
+  phone: {zone_kind: machinery, min_frames: 10}
+  under_load: {zone_kind: under_load, height_frac: 0.6, min_aspect: 1.0, min_frames: 5}
+  lone_worker: {zone_kind: two_person, duration_s: 30.0}
+  overcrowding: {zone_kind: crowd_limit, max_people: 5, duration_s: 10.0}
+  at_height: {zone_kind: height, dwell_s: 3.0}
+  loitering: {zone_kind: danger, dwell_s: 20.0}
+# cameras:
+  #  cam-2:
+  #    danger_zone: {zone_kind: flammable}
+  #    smoking: {min_confidence: 0.5}   # порог уверенности для детекций рядом с головой

@@ -1,0 +1,53 @@
+{
+  "linq_program": "ppe16",
+  "calibration_frames": 16,
+  "cpu_laptop": {
+    "note": "живой воркер демо на ноутбуке разработчика, onnxruntime CPU, модель best.onnx; среднее из 5 снимков /api/metrics по 6 с, 24.10.2026",
+    "cameras": 4,
+    "total_fps": 2.43,
+    "inference_ms": 1739
+  },
+  "latency_live": {
+    "note": "H4, 25.10: ролик mixkit-24127 --loop, бэкенд без авторизации, ONNX СИЗ + люди + поза; n=58-59 событий на режим; замер шёл при постороннем процессе на GPU (мой забытый прогон демо, 210% CPU), GPU-цифры завышены; метка кадра - приём кадра воркером; SSE-клиент отдельный, отрисовка карточки в браузере не входит",
+    "gpu_onnx_cuda": {
+      "frame_to_api_p50_ms": 43,
+      "frame_to_api_p95_ms": 118,
+      "frame_to_sse_p50_ms": 43,
+      "frame_to_sse_p95_ms": 120
+    },
+    "cpu": {
+      "frame_to_api_p50_ms": 92,
+      "frame_to_api_p95_ms": 140,
+      "frame_to_sse_p50_ms": 91,
+      "frame_to_sse_p95_ms": 140
+    },
+    "episode_start_to_first_event_s": {
+      "fall": {
+        "episodes": 80,
+        "found": 17,
+        "p50": 1.05,
+        "p95": 1.36
+      },
+      "danger_zone_synthetic": {
+        "episodes": 5,
+        "found": 5
+      },
+      "fence_crossing_synthetic": {
+        "episodes": 15,
+        "found": 9,
+        "p50": 0.47,
+        "p95": 4.11
+      },
+      "vehicle_proximity_synthetic": {
+        "episodes": 22,
+        "found": 14,
+        "p50": 0.42,
+        "p95": 3.63
+      },
+      "running_synthetic": {
+        "episodes": 17,
+        "found": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+# Обучение и настоящий воркер (тяжёлое, тянет torch). Ставить в ml/.venv вручную:
+#   ml/.venv/Scripts/python -m pip install -r ml/requirements.txt   (Mac/Linux: ml/.venv/bin/python)
+# На LinQ-хосте набор может отличаться — выяснить в пункте L0.
+ultralytics>=8.3
+opencv-python>=4.10
+onnx>=1.16
+onnxruntime>=1.18
+pika>=1.3  # LinQ через брокер стенда (LINQ_MODE=edge, воркер на ноутбуке)

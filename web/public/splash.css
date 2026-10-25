@@ -1,0 +1,130 @@
+#zorky-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  background: #0b0f12;
+  color: #fff;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#zorky-splash.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+#zorky-splash .mark {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  background: #b9e82b;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  animation: zorky-pop 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+#zorky-splash .mark svg {
+  width: 54px;
+  height: 54px;
+  stroke: #0b0f12;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 90;
+  stroke-dashoffset: 90;
+  animation: zorky-draw 1s 0.45s ease forwards;
+}
+#zorky-splash .mark::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(to bottom, transparent, rgba(11, 15, 18, 0.35), transparent);
+  animation: zorky-scan 1.6s 0.3s ease-in-out infinite;
+}
+#zorky-splash .word {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  animation: zorky-rise 0.7s 0.25s ease both;
+}
+#zorky-splash .word b {
+  color: #b9e82b;
+}
+#zorky-splash .dots {
+  display: flex;
+  gap: 8px;
+  animation: zorky-rise 0.7s 0.5s ease both;
+}
+#zorky-splash .dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b9e82b;
+  opacity: 0.25;
+  animation: zorky-dot 1.1s infinite ease-in-out;
+}
+#zorky-splash .dots i:nth-child(2) {
+  animation-delay: 0.18s;
+}
+#zorky-splash .dots i:nth-child(3) {
+  animation-delay: 0.36s;
+}
+@keyframes zorky-pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes zorky-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes zorky-scan {
+  0% {
+    top: -12px;
+  }
+  100% {
+    top: 100px;
+  }
+}
+@keyframes zorky-rise {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes zorky-dot {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #zorky-splash * {
+    animation: none !important;
+  }
+  #zorky-splash .mark svg {
+    stroke-dashoffset: 0;
+  }
+}

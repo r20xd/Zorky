@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ViolationEvent",
+  "description": "Событие нарушения: ML-воркер → бэкенд (POST /api/events). Координаты нормированы к 0..1 от размера кадра. Тот же объект описан в openapi.yaml как EventIn — их совпадение проверяет ml/tests/test_contracts.py.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "camera_id",
+    "ts",
+    "frame_id",
+    "type",
+    "bbox",
+    "confidence"
+  ],
+  "properties": {
+    "camera_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "id камеры из GET /api/cameras"
+    },
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Время кадра, ISO 8601 с часовым поясом, например 2026-10-21T10:00:00Z"
+    },
+    "frame_id": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Номер кадра в потоке камеры"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "no_helmet",
+        "no_respirator",
+        "danger_zone",
+        "smoking",
+        "fall",
+        "immobile",
+        "vehicle_proximity",
+        "running",
+        "phone",
+        "fence_crossing",
+        "under_load",
+        "distress_signal",
+        "lone_worker",
+        "overcrowding",
+        "at_height",
+        "loitering",
+        "vehicle_in_zone",
+        "vehicle_collision"
+      ],
+      "description": "Код типа из contracts/violation_types.json (код, название, критичность)"
+    },
+    "bbox": {
+      "type": "array",
+      "description": "Рамка человека [x1, y1, x2, y2], нормированная 0..1; x1 < x2, y1 < y2. Для событий уровня зоны (lone_worker, overcrowding) - границы полигона зоны; такие события без track_id, с zone_id",
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "track_id": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "id трека человека: одно нарушение одного человека — одно событие, а не событие на каждый кадр. Необязательно: без трека бэкенд склеивает инцидент по камере и типу"
+    },
+    "snapshot_url": {
+      "type": "string",
+      "description": "Снимок кадра с разметкой: сначала POST /api/snapshots, сюда — полученный url"
+    },
+    "zone_id": {
+      "type": "string",
+      "description": "Для danger_zone и smoking — id зоны из GET /api/cameras/{id}/zones"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "description": "Критичность; по умолчанию из реестра для type"
+    },
+    "incident_id": {
+      "type": "string",
+      "description": "Инцидент: серия событий одного нарушения одного трека; проставляет бэкенд, если воркер не дал"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Сколько раз нарушение повторилось в инциденте"
+    },
+    "first_seen": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Первое появление в инциденте"
+    },
+    "last_seen": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Последнее появление в инциденте"
+    }
+  }
+}

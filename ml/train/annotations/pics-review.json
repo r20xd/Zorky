@@ -1,0 +1,1655 @@
+{
+  "source": "Открытые источники, подборка пользователя; исходные URL не предоставлены",
+  "reviewer": "visual review; no detector pseudo-labels; not independently human-verified",
+  "coordinate_system": "xyxy pixels in preview_size (aspect-preserving max 1000x800, no upscaling)",
+  "classes": {
+    "1": "helmet",
+    "2": "head_without_helmet",
+    "3": "industrial_respirator",
+    "4": "cigarette"
+  },
+  "policy": "All visible target classes annotated in kept images; person class omitted because separate detector is used. Ordinary caps/hairnets are head, surgical masks are not industrial respirators. Visible extent; smoke, lighter, fingers excluded from cigarette box. No split assigned; dataset overlap audit pending.",
+  "records": [
+    {
+      "index": 0,
+      "image": "pics/cigarette/360_F_177670644_M1k9pqzVofRPMYBKMizrv2stwMltggfs.webp",
+      "sha256": "162f7e9f77f38067dbbad5d704e4d633bce6d0ca1f758ff804bdbd4cefc80bdf",
+      "size": [
+        540,
+        360
+      ],
+      "preview_size": [
+        540,
+        360
+      ],
+      "decision": "keep",
+      "reason": "Visible cigarette between fingers; bare head",
+      "group": "pics-00",
+      "boxes": [
+        [
+          2,
+          195,
+          49,
+          346,
+          237
+        ],
+        [
+          4,
+          194,
+          171,
+          220,
+          188
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.50092593 0.39722222 0.27962963 0.52222222",
+        "4 0.38333333 0.49861111 0.04814815 0.04722222"
+      ],
+      "phash": "d1ed0cee65ac9213",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-00.webp"
+    },
+    {
+      "index": 1,
+      "image": "pics/cigarette/360_F_226844857_8CoJloqyHarI653qnhorKEaEg4lDK6gJ.webp",
+      "sha256": "98def474d465e36bfe911bb4dc4b439c39b0aace2b940d97cc9e9bb3c1ebcc72",
+      "size": [
+        540,
+        360
+      ],
+      "preview_size": [
+        540,
+        360
+      ],
+      "decision": "exclude",
+      "reason": "Cigarette boundary too small/occluded to label confidently in the supplied resolution",
+      "group": "pics-01",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "a34ccce92b17a593",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 2,
+      "image": "pics/cigarette/360_F_629765409_LGrwWxNJTv7RIwa39I7BH4eVea2wSMS7.webp",
+      "sha256": "e34bf5065e722215215efe7de1f53834a628916cc25ba87f0a3b10338582aaba",
+      "size": [
+        639,
+        360
+      ],
+      "preview_size": [
+        639,
+        360
+      ],
+      "decision": "exclude",
+      "reason": "Head is heavily clipped at top and obscured by hand; exclude from first fully annotated pool",
+      "group": "pics-02",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "f568b5ba25845969",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 3,
+      "image": "pics/cigarette/an-old-senior-man-smoking-cigarette-outside-smoke-addiction-bad-habbit-photo.webp",
+      "sha256": "ff322c5c19df09a03af5aff60ff4c01e1187c50a56b53740787111905daa4387",
+      "size": [
+        525,
+        350
+      ],
+      "preview_size": [
+        525,
+        350
+      ],
+      "decision": "keep",
+      "reason": "Cigarette at lips; tied hair is not hardhat",
+      "group": "pics-03",
+      "boxes": [
+        [
+          2,
+          79,
+          14,
+          255,
+          176
+        ],
+        [
+          4,
+          241,
+          158,
+          290,
+          174
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.31809524 0.27142857 0.33523810 0.46285714",
+        "4 0.50571429 0.47428571 0.09333333 0.04571429"
+      ],
+      "phash": "7c391e986de68265",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-03.webp"
+    },
+    {
+      "index": 4,
+      "image": "pics/cigarette/depositphotos_4168242-stock-photo-young-man-smokes-a-cigarette.webp",
+      "sha256": "103cf11ba94dcae2fcd072d7185743f9781732f309daba75b60405c41c82d1a8",
+      "size": [
+        491,
+        600
+      ],
+      "preview_size": [
+        491,
+        600
+      ],
+      "decision": "keep",
+      "reason": "Cigarette being lit; lighter is not part of cigarette bbox",
+      "group": "pics-04",
+      "boxes": [
+        [
+          2,
+          179,
+          74,
+          345,
+          297
+        ],
+        [
+          4,
+          263,
+          268,
+          274,
+          289
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.53360489 0.30916667 0.33808554 0.37166667",
+        "4 0.54684318 0.46416667 0.02240326 0.03500000"
+      ],
+      "phash": "993366cc66669999",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-04.webp"
+    },
+    {
+      "index": 5,
+      "image": "pics/cigarette/free-photo-of-elderly-man-smoking-cigarette.webp",
+      "sha256": "47d8ccacf7e0794ef7caffaf55086bf6c2a29a4847f1d514d85ca650483d6ab2",
+      "size": [
+        500,
+        400
+      ],
+      "preview_size": [
+        500,
+        400
+      ],
+      "decision": "keep",
+      "reason": "Cigarette at mouth; ordinary cap belongs to head class",
+      "group": "pics-05",
+      "boxes": [
+        [
+          2,
+          139,
+          69,
+          288,
+          259
+        ],
+        [
+          4,
+          221,
+          193,
+          248,
+          226
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.42700000 0.41000000 0.29800000 0.47500000",
+        "4 0.46900000 0.52375000 0.05400000 0.08250000"
+      ],
+      "phash": "2382de8c369af963",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-05.webp"
+    },
+    {
+      "index": 6,
+      "image": "pics/cigarette/free-photo-of-monochrome-portrait-of-a-man-smoking-thoughtfully.webp",
+      "sha256": "2f9909628e15e284bde25a3ece3138a13af349bf69c9b422c0543c603c833ff6",
+      "size": [
+        500,
+        750
+      ],
+      "preview_size": [
+        500,
+        750
+      ],
+      "decision": "exclude",
+      "reason": "Brown rolled smoking object could be cigar/cigarillo; do not guess cigarette class",
+      "group": "pics-06",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "cba7726c964a8955",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 7,
+      "image": "pics/cigarette/man-sitting-on-bed-smoking-a-cigarette.webp",
+      "sha256": "4a9d724bf8c84ae4478f9c63b9dc383d66ccdfb7a75416d7488f7e32aed10de6",
+      "size": [
+        612,
+        459
+      ],
+      "preview_size": [
+        612,
+        459
+      ],
+      "decision": "keep",
+      "reason": "Visible small cigarette at lips; smoke excluded from bbox",
+      "group": "pics-07",
+      "boxes": [
+        [
+          2,
+          365,
+          108,
+          445,
+          196
+        ],
+        [
+          4,
+          361,
+          183,
+          378,
+          200
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.66176471 0.33115468 0.13071895 0.19172113",
+        "4 0.60375817 0.41721133 0.02777778 0.03703704"
+      ],
+      "phash": "96c90f606996f26b",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-07.webp"
+    },
+    {
+      "index": 8,
+      "image": "pics/cigarette/overweight-senior-man-smoking-cigarette.webp",
+      "sha256": "ed8bd22f39f741df9c7cca02c98f5b56e3d1ad2e550a9f08af7f534cd26077fd",
+      "size": [
+        612,
+        408
+      ],
+      "preview_size": [
+        612,
+        408
+      ],
+      "decision": "keep",
+      "reason": "Visible cigarette in hand, away from mouth",
+      "group": "pics-08",
+      "boxes": [
+        [
+          2,
+          290,
+          11,
+          422,
+          175
+        ],
+        [
+          4,
+          428,
+          164,
+          479,
+          188
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.58169935 0.22794118 0.21568627 0.40196078",
+        "4 0.74101307 0.43137255 0.08333333 0.05882353"
+      ],
+      "phash": "9476e71e98d82693",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-08.webp"
+    },
+    {
+      "index": 9,
+      "image": "pics/cigarette/pexels-photo-15951766.webp",
+      "sha256": "cbf4c805cd73c898005baba6e8428cb8da8579ae2dc101636542085d55b68eeb",
+      "size": [
+        500,
+        888
+      ],
+      "preview_size": [
+        450,
+        800
+      ],
+      "decision": "exclude",
+      "reason": "Multiple defocused background heads would remain incompletely annotated",
+      "group": "pics-09",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "a5a3d3f3d4390b05",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 10,
+      "image": "pics/cigarette/portrait-of-handsome-guy-smoking-outdoors-young-man-smoking-cigarette-on-the-street-photo.webp",
+      "sha256": "87c8afb94f30a5ad4e127c5385cbc2e901cefddf021001dfa17aedb683fffdff",
+      "size": [
+        546,
+        350
+      ],
+      "preview_size": [
+        546,
+        350
+      ],
+      "decision": "keep",
+      "reason": "Cigarette in raised hand",
+      "group": "pics-10",
+      "boxes": [
+        [
+          2,
+          94,
+          56,
+          230,
+          198
+        ],
+        [
+          4,
+          292,
+          129,
+          319,
+          146
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.29670330 0.36285714 0.24908425 0.40571429",
+        "4 0.55952381 0.39285714 0.04945055 0.04857143"
+      ],
+      "phash": "1c6ce1c19ccda1ed",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-10.webp"
+    },
+    {
+      "index": 11,
+      "image": "pics/cigarette/senior-man-lighting-up-a-cigarette-outdoors-against-green-nature-background-old-thoughtful.webp",
+      "sha256": "70a8a71ce48248a0f07df5b7e7069e167c086a2d684ff02d98b1c5fc9e617c44",
+      "size": [
+        768,
+        432
+      ],
+      "preview_size": [
+        768,
+        432
+      ],
+      "decision": "keep",
+      "reason": "Cigarette held horizontally; smoke excluded from bbox",
+      "group": "pics-11",
+      "boxes": [
+        [
+          2,
+          344,
+          0,
+          625,
+          290
+        ],
+        [
+          4,
+          178,
+          209,
+          286,
+          226
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.63085938 0.33564815 0.36588542 0.67129630",
+        "4 0.30208333 0.50347222 0.14062500 0.03935185"
+      ],
+      "phash": "d45adab27c584a2d",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-11.webp"
+    },
+    {
+      "index": 12,
+      "image": "pics/cigarette/young-hipster-man-taking-rest-smoking-cigarette-with-nature-and-fresh-breeze-free-photo.webp",
+      "sha256": "8480fd55e1faf12c7ad11a34783f57d6925024ce57e188eec5d6a628120f300d",
+      "size": [
+        525,
+        350
+      ],
+      "preview_size": [
+        525,
+        350
+      ],
+      "decision": "keep",
+      "reason": "Cigarette in hand; annotate separate head",
+      "group": "pics-12",
+      "boxes": [
+        [
+          2,
+          104,
+          4,
+          310,
+          237
+        ],
+        [
+          4,
+          281,
+          227,
+          327,
+          248
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.39428571 0.34428571 0.39238095 0.66571429",
+        "4 0.57904762 0.67857143 0.08761905 0.06000000"
+      ],
+      "phash": "9671b3d381e21d8d",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-12.webp"
+    },
+    {
+      "index": 13,
+      "image": "pics/kaska/5566168806d6f7cd010c57e9b4bc8da7696320efc7_m.webp",
+      "sha256": "b08fde2bc44843930ff91477a39e80a827bc1a09b78a4cef13f4ae963ad7bfec",
+      "size": [
+        375,
+        250
+      ],
+      "preview_size": [
+        375,
+        250
+      ],
+      "decision": "keep",
+      "reason": "One protective hardhat; tools are negatives",
+      "group": "pics-13",
+      "boxes": [
+        [
+          1,
+          168,
+          18,
+          222,
+          59
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "1 0.52000000 0.15400000 0.14400000 0.16400000"
+      ],
+      "phash": "2c724e56338cbba3",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-13.webp"
+    },
+    {
+      "index": 14,
+      "image": "pics/kaska/depositphotos_6671463-stock-photo-the-working-man.webp",
+      "sha256": "e143f0d5f4638fbde8aacbc9fca8e4768a77a12a45ee677bf06d59123c0d22ee",
+      "size": [
+        600,
+        400
+      ],
+      "preview_size": [
+        600,
+        400
+      ],
+      "decision": "keep",
+      "reason": "One hardhat; no head label for helmeted person",
+      "group": "pics-14",
+      "boxes": [
+        [
+          1,
+          356,
+          0,
+          519,
+          123
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "1 0.72916667 0.15375000 0.27166667 0.30750000"
+      ],
+      "phash": "7068cb6d8ce869a7",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-14.webp"
+    },
+    {
+      "index": 15,
+      "image": "pics/kaska/inline_image_preview.webp",
+      "sha256": "03f7e0b06f4cf869e776b5ca31d8758a95c716887e1122a64be34cf0ffe5ea01",
+      "size": [
+        500,
+        281
+      ],
+      "preview_size": [
+        500,
+        281
+      ],
+      "decision": "keep",
+      "reason": "One hardhat; hand and bag are negatives",
+      "group": "pics-15",
+      "boxes": [
+        [
+          1,
+          205,
+          4,
+          266,
+          47
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "1 0.47100000 0.09074733 0.12200000 0.15302491"
+      ],
+      "phash": "c6fe30b1ce2c310f",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-15.webp"
+    },
+    {
+      "index": 16,
+      "image": "pics/kaska/pexels-photo.webp",
+      "sha256": "5f95676406d2013b22ae4ec58aed34e361ff05b456657e0039e81dc0506d7ce0",
+      "size": [
+        500,
+        333
+      ],
+      "preview_size": [
+        500,
+        333
+      ],
+      "decision": "exclude",
+      "reason": "Additional defocused face/head at right; uncertain photographic/reflection content",
+      "group": "pics-16",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "c8e43e0fb2cdd033",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 17,
+      "image": "pics/kaska/video_preview_0000.webp",
+      "sha256": "d383bf70dc4819dc5f9abe6659f3f38b0238c9b2aeb45841830da3512ec1bcce",
+      "size": [
+        500,
+        281
+      ],
+      "preview_size": [
+        500,
+        281
+      ],
+      "decision": "keep",
+      "reason": "One hardhat; hands at ears are negatives",
+      "group": "pics-17",
+      "boxes": [
+        [
+          1,
+          230,
+          23,
+          311,
+          79
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "1 0.54100000 0.18149466 0.16200000 0.19928826"
+      ],
+      "phash": "dee16c9e1961930b",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-17.webp"
+    },
+    {
+      "index": 18,
+      "image": "pics/kaska/кавказский-мужчина-кровельщик-несущий-бревна-во-время-работы-на-стройке.webp",
+      "sha256": "d2cde309ea6fe7b58522f13fe5a03b60007de2bdbe5f3d3a22f9e166f3531f48",
+      "size": [
+        612,
+        408
+      ],
+      "preview_size": [
+        612,
+        408
+      ],
+      "decision": "keep",
+      "reason": "One hardhat",
+      "group": "pics-18",
+      "boxes": [
+        [
+          1,
+          142,
+          144,
+          223,
+          199
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "1 0.29820261 0.42034314 0.13235294 0.13480392"
+      ],
+      "phash": "3224edf9398b7381",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-18.webp"
+    },
+    {
+      "index": 19,
+      "image": "pics/kaska/отчаяние-сотрудников-в-логистическом-бизнесе-sittng-в-контейнере.webp",
+      "sha256": "4bd2ae8ea7076a902dc932970fcaeda37a40c30fb6c23fe28490ca8844ff78bc",
+      "size": [
+        612,
+        408
+      ],
+      "preview_size": [
+        612,
+        408
+      ],
+      "decision": "keep",
+      "reason": "Small white hardhat; low light example",
+      "group": "pics-19",
+      "boxes": [
+        [
+          1,
+          208,
+          156,
+          241,
+          183
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "1 0.36683007 0.41544118 0.05392157 0.06617647"
+      ],
+      "phash": "986c739c0e70ef83",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-19.webp"
+    },
+    {
+      "index": 20,
+      "image": "pics/kontrprimers/1645574516_20-sportishka-com-p-paren-v-kepke-turizm-krasivo-foto-24.webp",
+      "sha256": "9c25d04ccc564dbcc039b3efd4c3fbf6393c928e0ffd8115a856b340da460b3f",
+      "size": [
+        860,
+        573
+      ],
+      "preview_size": [
+        860,
+        573
+      ],
+      "decision": "keep",
+      "reason": "Ordinary cap, not helmet; small footer text outside target",
+      "group": "pics-seaside-cap-series-conservative",
+      "boxes": [
+        [
+          2,
+          475,
+          84,
+          725,
+          309
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.69767442 0.34293194 0.29069767 0.39267016"
+      ],
+      "phash": "30d1cf6e6831278f",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-20.webp"
+    },
+    {
+      "index": 21,
+      "image": "pics/kontrprimers/1667807000_15-fashionhot-club-p-chelovek-v-kepke-18.webp",
+      "sha256": "5f028d6205f63423aa6946c3127ca5f56213f514afe7d2208602043c250ac418",
+      "size": [
+        695,
+        464
+      ],
+      "preview_size": [
+        695,
+        464
+      ],
+      "decision": "keep",
+      "reason": "Backward baseball cap, not helmet",
+      "group": "pics-seaside-cap-series-conservative",
+      "boxes": [
+        [
+          2,
+          220,
+          78,
+          467,
+          311
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.49424460 0.41918103 0.35539568 0.50215517"
+      ],
+      "phash": "472796cb19326bc5",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-21.webp"
+    },
+    {
+      "index": 22,
+      "image": "pics/kontrprimers/1669372884_33-fashionhot-club-p-paren-v-kepke-37.webp",
+      "sha256": "ad7c62e1d3455aac94ed30391459f94edaa01bd2d4020363e70737ca42081b07",
+      "size": [
+        695,
+        464
+      ],
+      "preview_size": [
+        695,
+        464
+      ],
+      "decision": "keep",
+      "reason": "Backward cap, not helmet",
+      "group": "pics-22",
+      "boxes": [
+        [
+          2,
+          340,
+          30,
+          546,
+          242
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.63741007 0.29310345 0.29640288 0.45689655"
+      ],
+      "phash": "5999d94d4c32b327",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-22.webp"
+    },
+    {
+      "index": 23,
+      "image": "pics/kontrprimers/1669372935_68-fashionhot-club-p-paren-v-kepke-73.webp",
+      "sha256": "fc83659a1df142b0bdfdfb6d0dfb579f157e5f54fdffcd2ffc3247ed629cf414",
+      "size": [
+        695,
+        465
+      ],
+      "preview_size": [
+        695,
+        465
+      ],
+      "decision": "keep",
+      "reason": "Cap and sunglasses; no helmet",
+      "group": "pics-23",
+      "boxes": [
+        [
+          2,
+          198,
+          16,
+          621,
+          386
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.58920863 0.43225806 0.60863309 0.79569892"
+      ],
+      "phash": "98d08e4bbb5742ab",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-23.webp"
+    },
+    {
+      "index": 24,
+      "image": "pics/kontrprimers/1669372945_27-fashionhot-club-p-paren-v-kepke-31.webp",
+      "sha256": "37580bec70e2b88c9bed4c1de282d3ab54a9a972712a1548b99c2a9d38646899",
+      "size": [
+        695,
+        339
+      ],
+      "preview_size": [
+        695,
+        339
+      ],
+      "decision": "keep",
+      "reason": "Baseball cap, not helmet",
+      "group": "pics-seaside-cap-series-conservative",
+      "boxes": [
+        [
+          2,
+          452,
+          42,
+          588,
+          167
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.74820144 0.30825959 0.19568345 0.36873156"
+      ],
+      "phash": "0b69992d6d28d3c7",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-24.webp"
+    },
+    {
+      "index": 25,
+      "image": "pics/kontrprimers/233a67f3a991fa45d069a2d164a6ccba.webp",
+      "sha256": "8ffaa1a92f6e6d7f3c966e2163aeb625629705f4b8cae259ee6718c5ff28056f",
+      "size": [
+        141,
+        300
+      ],
+      "preview_size": [
+        141,
+        300
+      ],
+      "decision": "exclude",
+      "reason": "141px-wide compressed selfie with occluded head; insufficient detail for first clean pool",
+      "group": "pics-25",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "7873d7030dfca303",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 26,
+      "image": "pics/kontrprimers/428a148dfeb1e669ed95ac0be0aaf63e.webp",
+      "sha256": "8204ad848946ee66a97302e322340469263a718148988a0a8ae92c4478569c32",
+      "size": [
+        254,
+        300
+      ],
+      "preview_size": [
+        254,
+        300
+      ],
+      "decision": "keep",
+      "reason": "Surgical mask, not industrial respirator; visible bare head",
+      "group": "pics-26",
+      "boxes": [
+        [
+          2,
+          51,
+          22,
+          171,
+          148
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.43700787 0.28333333 0.47244094 0.42000000"
+      ],
+      "phash": "6499b264caee0779",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-26.webp"
+    },
+    {
+      "index": 27,
+      "image": "pics/kontrprimers/be6b0b84fee53a4339bfc3f99c42ccd2.webp",
+      "sha256": "0262fc9d863e9d620e6d3e1044d47dfe357cc12ef581e0db2c09b51c8b4c59e8",
+      "size": [
+        860,
+        860
+      ],
+      "preview_size": [
+        800,
+        800
+      ],
+      "decision": "exclude",
+      "reason": "Strongly stylized image; photographic authenticity unverified, leave outside real-photo pool",
+      "group": "pics-27",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "6b2b1d87b4da48a5",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 28,
+      "image": "pics/kontrprimers/d9e3b26aacedfc19aa3a06d83a0d93c0.webp",
+      "sha256": "436067049251fbfca3df152f5344f0c4765f2694faec882d2ebce29226781926",
+      "size": [
+        800,
+        532
+      ],
+      "preview_size": [
+        800,
+        532
+      ],
+      "decision": "exclude",
+      "reason": "Repeated stock watermark overlays person and scene",
+      "group": "pics-28",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "399bc358b223e32d",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 29,
+      "image": "pics/kontrprimers/dafaa04cad989224e28cfe741ba5ef9a.webp",
+      "sha256": "988b165efc975e62f522dc80cb00468af91c3d4441d2489ba42cc5f977b9b3a4",
+      "size": [
+        800,
+        654
+      ],
+      "preview_size": [
+        800,
+        654
+      ],
+      "decision": "exclude",
+      "reason": "Repeated stock watermark crosses face and torso",
+      "group": "pics-29",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "9b99623993986567",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 30,
+      "image": "pics/kontrprimers/depositphotos_354232764-stock-photo-a-man-puts-on-a.webp",
+      "sha256": "06468a2029e9e80c9318642b86852dcbe73aa65e3ed936933bfa3b8e489d86d2",
+      "size": [
+        600,
+        400
+      ],
+      "preview_size": [
+        600,
+        400
+      ],
+      "decision": "keep",
+      "reason": "Knit cap and surgical mask, no industrial respirator",
+      "group": "pics-30",
+      "boxes": [
+        [
+          2,
+          198,
+          34,
+          410,
+          319
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.50666667 0.44125000 0.35333333 0.71250000"
+      ],
+      "phash": "78841c29c6a3bc7f",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-30.webp"
+    },
+    {
+      "index": 31,
+      "image": "pics/kontrprimers/depositphotos_359126342-stock-photo-concerned-young-man-wearing-medical.webp",
+      "sha256": "5493dd5e90954965d0e2c6abc85a873482b405ef40bfea05ca08f9f1df4d5578",
+      "size": [
+        600,
+        400
+      ],
+      "preview_size": [
+        600,
+        400
+      ],
+      "decision": "keep",
+      "reason": "Surgical mask negative for respirator",
+      "group": "pics-31",
+      "boxes": [
+        [
+          2,
+          266,
+          49,
+          354,
+          150
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.51666667 0.24875000 0.14666667 0.25250000"
+      ],
+      "phash": "910ad54cb79871e7",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-31.webp"
+    },
+    {
+      "index": 32,
+      "image": "pics/kontrprimers/depositphotos_359778792-stock-photo-man-medical-mask-throwing-air.webp",
+      "sha256": "4d29174e8496ea9374c3ec155ae00f3b3a35b691268e8a27e89e79cfe07a33fb",
+      "size": [
+        600,
+        400
+      ],
+      "preview_size": [
+        600,
+        400
+      ],
+      "decision": "keep",
+      "reason": "Surgical mask negative; airborne object not cigarette",
+      "group": "pics-32",
+      "boxes": [
+        [
+          2,
+          325,
+          25,
+          428,
+          160
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.62750000 0.23125000 0.17166667 0.33750000"
+      ],
+      "phash": "c94939634e39a1d7",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-32.webp"
+    },
+    {
+      "index": 33,
+      "image": "pics/kontrprimers/depositphotos_367923416-stock-photo-man-medical-mask-holding-rag.webp",
+      "sha256": "f19d48e5fc47cb8e34e9927be4bd12b16dd40e3c782c2fac1de722222ecc0c93",
+      "size": [
+        600,
+        400
+      ],
+      "preview_size": [
+        600,
+        400
+      ],
+      "decision": "keep",
+      "reason": "Surgical mask negative; cleaning items not cigarettes",
+      "group": "pics-33",
+      "boxes": [
+        [
+          2,
+          293,
+          49,
+          374,
+          151
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.55583333 0.25000000 0.13500000 0.25500000"
+      ],
+      "phash": "6f15d00e906d379b",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-33.webp"
+    },
+    {
+      "index": 34,
+      "image": "pics/kontrprimers/memi-klev-club-m27k-p-memi-chelovek-s-telefonom-11.webp",
+      "sha256": "5f06ceb2556ea070fe99088c0951832ebf91cb57ea0c822b0995b4343f55c8f1",
+      "size": [
+        600,
+        370
+      ],
+      "preview_size": [
+        600,
+        370
+      ],
+      "decision": "exclude",
+      "reason": "Strong compression and clipped scalp; low-quality meme copy",
+      "group": "pics-34",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "ad96cf2590687785",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 35,
+      "image": "pics/kontrprimers/none-175589370.webp",
+      "sha256": "3027439a066606a3000c7ef86931169a6999b9f2cbede467f9b98c6124e0678e",
+      "size": [
+        800,
+        534
+      ],
+      "preview_size": [
+        800,
+        534
+      ],
+      "decision": "exclude",
+      "reason": "Large stock watermark crosses target region",
+      "group": "pics-35",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "654fbcb609c313a5",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 36,
+      "image": "pics/kontrprimers/pexels-photo-6690529.webp",
+      "sha256": "70fff0f5b5da2979caebab4c272613929afcad693f1d34460fa26a258c9b3184",
+      "size": [
+        500,
+        750
+      ],
+      "preview_size": [
+        500,
+        750
+      ],
+      "decision": "keep",
+      "reason": "Ordinary cap, not protective helmet",
+      "group": "pics-36",
+      "boxes": [
+        [
+          2,
+          42,
+          51,
+          480,
+          501
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.52200000 0.36800000 0.87600000 0.60000000"
+      ],
+      "phash": "5ca6cb01ad38f517",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-36.webp"
+    },
+    {
+      "index": 37,
+      "image": "pics/kontrprimers/pexels-photo-7940557.webp",
+      "sha256": "c0d24ed6075dfe696ec1915e42be43a16e4080c9ebca96854c4f2de3a4777354",
+      "size": [
+        500,
+        333
+      ],
+      "preview_size": [
+        500,
+        333
+      ],
+      "decision": "keep",
+      "reason": "Ordinary cap from rear, not protective helmet",
+      "group": "pics-seaside-cap-series-conservative",
+      "boxes": [
+        [
+          2,
+          226,
+          54,
+          311,
+          134
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.53700000 0.28228228 0.17000000 0.24024024"
+      ],
+      "phash": "7675898a9831736d",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-37.webp"
+    },
+    {
+      "index": 38,
+      "image": "pics/kontrprimers/portrait-smiling-young-man-holding-mobile-phone-yellow-background_93675-272315.webp",
+      "sha256": "52b086cd92c64a9a73f938d88654c4b903258b53e827896c56d2b1486a00771e",
+      "size": [
+        740,
+        493
+      ],
+      "preview_size": [
+        740,
+        493
+      ],
+      "decision": "keep",
+      "reason": "Phone in hands negative for cigarette; bare head",
+      "group": "pics-38",
+      "boxes": [
+        [
+          2,
+          424,
+          32,
+          546,
+          181
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.65540541 0.21602434 0.16486486 0.30223124"
+      ],
+      "phash": "69e9b6491236ec93",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-38.webp"
+    },
+    {
+      "index": 39,
+      "image": "pics/kontrprimers/большой-человек-в-прозодеждах-и-крышке-стоя-думающ-114017384.webp",
+      "sha256": "0e2da85bfd0b9bdb22ff52f4d4650f6bb6772c974e566fb5bb210d79e9ed8c72",
+      "size": [
+        600,
+        900
+      ],
+      "preview_size": [
+        533,
+        800
+      ],
+      "decision": "exclude",
+      "reason": "Stock watermark overlays worker; use cleaner cap examples",
+      "group": "pics-39",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "4bd90d5af02593b5",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 40,
+      "image": "pics/kontrprimers/портрет-человека-крышки-5146616.webp",
+      "sha256": "436a56b6701a230b22a5543ae0c22d9b4d6aa4a8d5f9b7b6d0bc2b99c2fe7b2d",
+      "size": [
+        800,
+        532
+      ],
+      "preview_size": [
+        800,
+        532
+      ],
+      "decision": "exclude",
+      "reason": "Stock watermark crosses face",
+      "group": "pics-40",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "0bace329b167a497",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 41,
+      "image": "pics/kontrprimers/усмехаясь-крышка-человека-нося-с-dungarees-110417995.webp",
+      "sha256": "67b4ddb3455a0b76421e3e5b3edb4ce29b29801c7dc7bbf1145aa0efbe83a744",
+      "size": [
+        800,
+        534
+      ],
+      "preview_size": [
+        800,
+        534
+      ],
+      "decision": "exclude",
+      "reason": "Stock watermark crosses face",
+      "group": "pics-41",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "9933d9639cc44d8d",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 42,
+      "image": "pics/respirator/9227576-a-man-in-a-respirator-and-glasses-suffering-from-smoke-and-heat-in-moscow-isolated-on-black.webp",
+      "sha256": "0c31de708ef8ece4c53582ac17e411ffd38a399a1ad1ece0ed7e92fbf2759025",
+      "size": [
+        450,
+        301
+      ],
+      "preview_size": [
+        450,
+        301
+      ],
+      "decision": "keep",
+      "reason": "Industrial half-face respirator including filters; goggles separate; no hardhat",
+      "group": "pics-42",
+      "boxes": [
+        [
+          2,
+          190,
+          6,
+          375,
+          278
+        ],
+        [
+          3,
+          155,
+          131,
+          339,
+          292
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.62777778 0.47176080 0.41111111 0.90365449",
+        "3 0.54888889 0.70265781 0.40888889 0.53488372"
+      ],
+      "phash": "de314eb34c2d9629",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-42.webp"
+    },
+    {
+      "index": 43,
+      "image": "pics/respirator/depositphotos_176152296-stock-photo-selective-focus-man-respirator-holding.webp",
+      "sha256": "0994fea1a82ab5084e7e6bfd2eae91aab819d22c5f0995bda326630cd2caf120",
+      "size": [
+        600,
+        400
+      ],
+      "preview_size": [
+        600,
+        400
+      ],
+      "decision": "keep",
+      "reason": "Industrial half-face respirator; knit cap not hardhat",
+      "group": "pics-43",
+      "boxes": [
+        [
+          2,
+          251,
+          95,
+          382,
+          274
+        ],
+        [
+          3,
+          261,
+          180,
+          368,
+          264
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.52750000 0.46125000 0.21833333 0.44750000",
+        "3 0.52416667 0.55500000 0.17833333 0.21000000"
+      ],
+      "phash": "6c86274bac924b7d",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-43.webp"
+    },
+    {
+      "index": 44,
+      "image": "pics/respirator/depositphotos_197760852-stock-photo-man-respirator-crossed-hands-isolated.webp",
+      "sha256": "cdb872a0960118edf35158c29a536ab8e8c16180b932297981112776c621dbf2",
+      "size": [
+        600,
+        400
+      ],
+      "preview_size": [
+        600,
+        400
+      ],
+      "decision": "keep",
+      "reason": "Industrial half-face respirator with two filters",
+      "group": "pics-44",
+      "boxes": [
+        [
+          2,
+          163,
+          68,
+          254,
+          188
+        ],
+        [
+          3,
+          172,
+          125,
+          253,
+          189
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.34750000 0.32000000 0.15166667 0.30000000",
+        "3 0.35416667 0.39250000 0.13500000 0.16000000"
+      ],
+      "phash": "6c986793ec63831d",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-44.webp"
+    },
+    {
+      "index": 45,
+      "image": "pics/respirator/depositphotos_91685086-stock-photo-man-in-respirator-on-the.webp",
+      "sha256": "d89a46ae033fb466aaac48469e6040eb6c939ba66e71c22948ca91c79fae6aa7",
+      "size": [
+        600,
+        400
+      ],
+      "preview_size": [
+        600,
+        400
+      ],
+      "decision": "keep",
+      "reason": "Industrial half-face respirator including filters; clipped bare head, no hardhat",
+      "group": "pics-45",
+      "boxes": [
+        [
+          2,
+          192,
+          0,
+          450,
+          271
+        ],
+        [
+          3,
+          176,
+          79,
+          466,
+          328
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.53500000 0.33875000 0.43000000 0.67750000",
+        "3 0.53500000 0.50875000 0.48333333 0.62250000"
+      ],
+      "phash": "9abdf160a8913727",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-45.webp"
+    },
+    {
+      "index": 46,
+      "image": "pics/respirator/portrait-man-respirator-free-space-respiratory-protection-133701602.webp",
+      "sha256": "364c07e5352ac9702d6860dab10fb3b5f59c51929f51cae1a42f12c4c4047514",
+      "size": [
+        800,
+        534
+      ],
+      "preview_size": [
+        800,
+        534
+      ],
+      "decision": "exclude",
+      "reason": "Stock watermark crosses face and respirator",
+      "group": "pics-46",
+      "boxes": [],
+      "eligible_for_training": false,
+      "annotation_status": "excluded",
+      "yolo_rows": [],
+      "phash": "9608851af1dae9e7",
+      "existing_exact_matches": [],
+      "external_near_candidates": []
+    },
+    {
+      "index": 47,
+      "image": "pics/respirator/worker-respirator-grey-background-space-text_495423-90869.webp",
+      "sha256": "18954b391516203140753db2ab4657ca825b2eb28d98b02b46243e0ee4c03b57",
+      "size": [
+        740,
+        494
+      ],
+      "preview_size": [
+        740,
+        494
+      ],
+      "decision": "keep",
+      "reason": "Full-face industrial respirator; straps not helmet",
+      "group": "pics-47",
+      "boxes": [
+        [
+          2,
+          342,
+          0,
+          608,
+          290
+        ],
+        [
+          3,
+          304,
+          57,
+          609,
+          357
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.64189189 0.29352227 0.35945946 0.58704453",
+        "3 0.61689189 0.41902834 0.41216216 0.60728745"
+      ],
+      "phash": "e959322d5192b567",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-47.webp"
+    },
+    {
+      "index": 48,
+      "image": "pics/respirator/работник-мужчина-в-полнолицевой-респираторной-маске-и-наушниках-для-работы-в-опасной-среде.webp",
+      "sha256": "3bc1fd9a536b619f33359e472e2275f2e6237c3e1d63a7ed1e92f1ea107371e8",
+      "size": [
+        612,
+        408
+      ],
+      "preview_size": [
+        612,
+        408
+      ],
+      "decision": "keep",
+      "reason": "Full-face industrial respirator; hearing protection not helmet",
+      "group": "pics-48",
+      "boxes": [
+        [
+          2,
+          230,
+          30,
+          488,
+          359
+        ],
+        [
+          3,
+          179,
+          87,
+          525,
+          386
+        ]
+      ],
+      "eligible_for_training": false,
+      "annotation_status": "agent_visual_reviewed",
+      "yolo_rows": [
+        "2 0.58660131 0.47671569 0.42156863 0.80637255",
+        "3 0.57516340 0.57965686 0.56535948 0.73284314"
+      ],
+      "phash": "d8a5291e2926db67",
+      "existing_exact_matches": [],
+      "external_near_candidates": [],
+      "export_name": "pics-48.webp"
+    }
+  ],
+  "summary": {
+    "reviewed": 49,
+    "kept": 34,
+    "excluded": 15,
+    "target_objects": {
+      "2": 28,
+      "4": 9,
+      "1": 6,
+      "3": 6
+    },
+    "negative_for_cigarette_and_respirator": 19
+  },
+  "audit": {
+    "existing_comparison_scope": "File SHA256 against old ppe only; reencoding and scene overlap with old ppe remain untested",
+    "existing_exact_images": 0,
+    "within_pics_near_candidates": [],
+    "external_near_scope": "pHash Hamming <=4 against 40 SH17 and 1130 Atharion images; candidates only, does not prove scene independence",
+    "external_near_images": 0
+  },
+  "review_method": "All 49 full-frame previews visually inspected; all 49 proposed target boxes checked in native-resolution crops; several boxes tightened after crop review. Manual agent annotations, no detector output."
+}

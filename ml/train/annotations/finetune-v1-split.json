@@ -1,0 +1,847 @@
+{
+  "version": 1,
+  "seed": 42,
+  "replay_images": 2000,
+  "existing_index_sha256": "d4a23b0cd56aee5c71a586e0193bc2f93e17d64c0be433af65c21a5424aa6e5c",
+  "audit": {
+    "existing_images": 19847,
+    "decoded_errors": 0,
+    "exact_matches": 0,
+    "phash_threshold": 8,
+    "near_matches": 0,
+    "mirror_matches": 0,
+    "new_near_pairs": 0,
+    "scope": "Whole-frame pHash, including horizontal mirror against old train+val; does not prove independence from cropped views or undetected same-scene frames",
+    "report_sha256": "43ef758dd2d4dc214cef195059173bc96cad6647f4832e7067a519cecae6ee1a"
+  },
+  "split_policy": "Group assignment fixed before inference; manual semantic coverage of 4 target classes in train/val/test; entire preassigned source scene groups together; test reserved for final baseline/candidate comparison. Tiny exploratory holdout, no thresholds/hyperparameters tuned on test.",
+  "records": [
+    {
+      "id": "sh17-00",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10040003.jpeg",
+      "group": "sh17-bottling",
+      "yolo_rows": [
+        "2 0.66526020 0.36450000 0.12095640 0.10500000"
+      ],
+      "sha256": "3de4263b628424b241d41b29e8a7632e27c6a52df301e9b91965836c2b751f8b",
+      "phash": "8bd43d5384be031f",
+      "width": 5072,
+      "height": 7138,
+      "mirror_phash": "212e97f92e14a9b5",
+      "split": "train"
+    },
+    {
+      "id": "sh17-01",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10664320.jpeg",
+      "group": "sh17-steel-shop",
+      "yolo_rows": [
+        "2 0.24000000 0.62915327 0.06285714 0.09646302"
+      ],
+      "sha256": "24bc65f830c383b84c9fa1e24581abb8cc52913dfc7d2bebf82fba8f877ee2a6",
+      "phash": "5041a65998f64fdb",
+      "width": 5472,
+      "height": 3648,
+      "mirror_phash": "faea0cf3125c4571",
+      "split": "train"
+    },
+    {
+      "id": "sh17-03",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/construction-site-build-construction-work-159306.jpeg",
+      "group": "sh17-tiltshift-construction",
+      "yolo_rows": [
+        "1 0.45928571 0.43622722 0.03285714 0.04072883",
+        "1 0.65571429 0.37781350 0.04142857 0.04608789"
+      ],
+      "sha256": "cf7735536398020369793d112e5c0ee8fc3be09a6687b20717835ea5a87789a7",
+      "phash": "ed821b9b6568be81",
+      "width": 4608,
+      "height": 3072,
+      "mirror_phash": "4768b13bcfc2942b",
+      "split": "test"
+    },
+    {
+      "id": "sh17-04",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-1018568.jpeg",
+      "group": "sh17-pharmacy",
+      "yolo_rows": [
+        "2 0.48035714 0.32117647 0.08928571 0.18588235",
+        "2 0.74607143 0.30764706 0.11071429 0.19882353"
+      ],
+      "sha256": "b30fbce0eda03b9d188932dccea730f033e421e01854560e164825e788887bb0",
+      "phash": "1fd61be239144f61",
+      "width": 2000,
+      "height": 1214,
+      "mirror_phash": "b16cb10813bee5cb",
+      "split": "val"
+    },
+    {
+      "id": "sh17-05",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10239293.jpeg",
+      "group": "sh17-dirty-hands",
+      "yolo_rows": [],
+      "sha256": "ececf5297417e71aff5720362fe65a9ed4891cf31cadb49de079d5b95227e907",
+      "phash": "5889f1b793502dad",
+      "width": 5184,
+      "height": 3456,
+      "mirror_phash": "f2235b1d39fa0507",
+      "split": "test"
+    },
+    {
+      "id": "sh17-06",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10474856.jpeg",
+      "group": "sh17-grinder",
+      "yolo_rows": [],
+      "sha256": "7b23457d5f6710f2a2708f0285c7e9769e4f9169b845f25e047831825c28b455",
+      "phash": "92e806895477b4fd",
+      "width": 6720,
+      "height": 4480,
+      "mirror_phash": "3842ac23fed91e17",
+      "split": "train"
+    },
+    {
+      "id": "sh17-08",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-1043573.jpeg",
+      "group": "sh17-smoking-man",
+      "yolo_rows": [
+        "2 0.40964286 0.36870311 0.11785714 0.21436227",
+        "4 0.40821429 0.44748124 0.01642857 0.02679528"
+      ],
+      "sha256": "2e75f855b380cd9d9d06911a7ffe2bb0e4e53671f78a04d9952004f44154ef60",
+      "phash": "39e31ce3c19c5e23",
+      "width": 6000,
+      "height": 4000,
+      "mirror_phash": "834bb6496b36f489",
+      "split": "train"
+    },
+    {
+      "id": "sh17-09",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10045513.jpeg",
+      "group": "sh17-orange-worker",
+      "yolo_rows": [
+        "1 0.31606607 0.36250000 0.09159159 0.06300000"
+      ],
+      "sha256": "e08c7daec4850f354241f0ac39670d0685259160a6843f40e0e03cc654d938ba",
+      "phash": "e7260c0a4b6f6f61",
+      "width": 2666,
+      "height": 4000,
+      "mirror_phash": "5d9ca6b061c5c5cb",
+      "split": "train"
+    },
+    {
+      "id": "sh17-13",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10375953.jpeg",
+      "group": "sh17-office-meeting",
+      "yolo_rows": [
+        "2 0.26285714 0.34458735 0.13428571 0.20042872",
+        "2 0.38821429 0.41532690 0.08071429 0.15326902",
+        "2 0.90071429 0.29421222 0.19142857 0.24758842"
+      ],
+      "sha256": "8cfcf9aa353830389f669e0195505d151b656fdf56303f99ed42c26b5be20785",
+      "phash": "783a39c995b17643",
+      "width": 5584,
+      "height": 3723,
+      "mirror_phash": "929093633f1b9ce9",
+      "split": "train"
+    },
+    {
+      "id": "sh17-15",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10573466.png",
+      "group": "sh17-brick-worker",
+      "yolo_rows": [
+        "2 0.39730135 0.31350000 0.14392804 0.11100000"
+      ],
+      "sha256": "98284da4f06c29f1cf939fb014d9079bc8362188750718270c8639a11d2e1c56",
+      "phash": "ceccac7472e0d42b",
+      "width": 3456,
+      "height": 5184,
+      "mirror_phash": "e46606fed84a7e81",
+      "split": "test"
+    },
+    {
+      "id": "sh17-18",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10347168.jpeg",
+      "group": "sh17-headscarf-office",
+      "yolo_rows": [
+        "2 0.52769461 0.21050000 0.24401198 0.19100000"
+      ],
+      "sha256": "8fa22a31c62af7a134e7e2ede30f0e0107e06a7f9847a250779577595b163664",
+      "phash": "1aa172999ac965ed",
+      "width": 4084,
+      "height": 6116,
+      "mirror_phash": "b08bd8b33063cf47",
+      "split": "train"
+    },
+    {
+      "id": "sh17-19",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-1018565.jpeg",
+      "group": "sh17-pharmacy",
+      "yolo_rows": [
+        "2 0.53667665 0.40850000 0.19910180 0.15300000",
+        "2 0.71856287 0.39400000 0.25748503 0.16600000"
+      ],
+      "sha256": "0de73a471c3fac828df3f3676ab7e187ff9dab248b23175bb981ec07430c018b",
+      "phash": "f3b0a64e683817f1",
+      "width": 1335,
+      "height": 2000,
+      "mirror_phash": "f91a0ce4c292bd5b",
+      "split": "val"
+    },
+    {
+      "id": "sh17-27",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10347167.jpeg",
+      "group": "sh17-headscarf-office",
+      "yolo_rows": [
+        "2 0.28000000 0.37727760 0.10714286 0.17792069",
+        "2 0.51500000 0.36923901 0.08000000 0.18113612"
+      ],
+      "sha256": "c2d9e199f4962f74e463b2925481a2dc9e6e4a2b816ad6054970b08ac3019e7c",
+      "phash": "bd509a3b4cda2565",
+      "width": 6240,
+      "height": 4160,
+      "mirror_phash": "17f22091e6708fcf",
+      "split": "train"
+    },
+    {
+      "id": "sh17-29",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/building-construction-building-site-constructing.jpg",
+      "group": "sh17-concrete-closeup",
+      "yolo_rows": [],
+      "sha256": "3b8f662aae2f3b9456ec4ee58f639ac32b65ba4d34aed8213f2eb77f6545758e",
+      "phash": "84c04c18b7f2cfcf",
+      "width": 5760,
+      "height": 3840,
+      "mirror_phash": "2e6ae6b21d586565",
+      "split": "train"
+    },
+    {
+      "id": "sh17-32",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10088317.jpeg",
+      "group": "sh17-fullface-respirator",
+      "yolo_rows": [
+        "2 0.48500750 0.28800000 0.34032984 0.31200000",
+        "3 0.48425787 0.32700000 0.46776612 0.27400000"
+      ],
+      "sha256": "15beb5ff9fdd59f199de5cb97f29c9b58f902c2dcc75727957b7229f4cf2c177",
+      "phash": "3d5aa582703b8e6b",
+      "width": 3648,
+      "height": 5472,
+      "mirror_phash": "97f14f68db9124c1",
+      "split": "train"
+    },
+    {
+      "id": "sh17-33",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10600181.jpeg",
+      "group": "sh17-cosmetology",
+      "yolo_rows": [
+        "2 0.47829341 0.24350000 0.34880240 0.31700000",
+        "2 0.61826347 0.77300000 0.42514970 0.24600000"
+      ],
+      "sha256": "c9278b42fc88cf17da2bb05e0c4d12db19ab7b3d713528e6e8428b39b1bfdbc1",
+      "phash": "38133af4cac1277d",
+      "width": 3666,
+      "height": 5491,
+      "mirror_phash": "92b9985e606b8dc7",
+      "split": "train"
+    },
+    {
+      "id": "sh17-34",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10341108.jpeg",
+      "group": "sh17-headscarf-office",
+      "yolo_rows": [
+        "2 0.66974432 0.19200000 0.26278409 0.25200000"
+      ],
+      "sha256": "e216d5db596c7c6275062aedf3f03b9248a9fc576d040fe64c5f601cbf116161",
+      "phash": "a759d88f2944aba3",
+      "width": 2799,
+      "height": 3976,
+      "mirror_phash": "adf3722583ee8119",
+      "split": "train"
+    },
+    {
+      "id": "sh17-36",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/construction-site-build-construction-work-159375.jpeg",
+      "group": "sh17-tiltshift-construction",
+      "yolo_rows": [
+        "1 0.54071429 0.43569132 0.03428571 0.03751340"
+      ],
+      "sha256": "23bced25833769f0b411b6e2957de59bc76f56876e0254a527511b96cbd644fb",
+      "phash": "641ef746e69a1a29",
+      "width": 4608,
+      "height": 3072,
+      "mirror_phash": "ceb45fec4cb0b083",
+      "split": "test"
+    },
+    {
+      "id": "sh17-38",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/pexels-photo-10130751.jpeg",
+      "group": "sh17-lineworkers",
+      "yolo_rows": [
+        "1 0.25149701 0.27050000 0.06586826 0.03100000",
+        "1 0.40119760 0.24750000 0.05988024 0.02900000"
+      ],
+      "sha256": "3ebccce9cd3eda31d4a9c15a73f6d05fe196d4e005296e40c4726f9274d81698",
+      "phash": "229ea4dda1634cb7",
+      "width": 4016,
+      "height": 6016,
+      "mirror_phash": "98b40e770bc9e61d",
+      "split": "train"
+    },
+    {
+      "id": "sh17-39",
+      "source": "sh17",
+      "image": "ml/data/finetune-v1/raw/sh17-sample/pool/images/floor-flooring-hand-man-1388944.jpeg",
+      "group": "sh17-flooring",
+      "yolo_rows": [],
+      "sha256": "5cae66dd9f5b9e8b8b33cd58049e3e24b991f68d7bf9c79eb7ba9e4fdde46403",
+      "phash": "8f8150c3e77d7071",
+      "width": 3358,
+      "height": 2016,
+      "mirror_phash": "25095a694557dadb",
+      "split": "val"
+    },
+    {
+      "id": "pics-00",
+      "source": "pics",
+      "image": "pics/cigarette/360_F_177670644_M1k9pqzVofRPMYBKMizrv2stwMltggfs.webp",
+      "group": "pics-00",
+      "yolo_rows": [
+        "2 0.50092593 0.39722222 0.27962963 0.52222222",
+        "4 0.38333333 0.49861111 0.04814815 0.04722222"
+      ],
+      "sha256": "162f7e9f77f38067dbbad5d704e4d633bce6d0ca1f758ff804bdbd4cefc80bdf",
+      "phash": "d1ed0cee65ac9213",
+      "width": 540,
+      "height": 360,
+      "mirror_phash": "7b47a644cf0638b9",
+      "split": "train"
+    },
+    {
+      "id": "pics-03",
+      "source": "pics",
+      "image": "pics/cigarette/an-old-senior-man-smoking-cigarette-outside-smoke-addiction-bad-habbit-photo.webp",
+      "group": "pics-03",
+      "yolo_rows": [
+        "2 0.31809524 0.27142857 0.33523810 0.46285714",
+        "4 0.50571429 0.47428571 0.09333333 0.04571429"
+      ],
+      "sha256": "ff322c5c19df09a03af5aff60ff4c01e1187c50a56b53740787111905daa4387",
+      "phash": "7c391e986de68265",
+      "width": 525,
+      "height": 350,
+      "mirror_phash": "c692be32c74c28cf",
+      "split": "train"
+    },
+    {
+      "id": "pics-04",
+      "source": "pics",
+      "image": "pics/cigarette/depositphotos_4168242-stock-photo-young-man-smokes-a-cigarette.webp",
+      "group": "pics-04",
+      "yolo_rows": [
+        "2 0.53360489 0.30916667 0.33808554 0.37166667",
+        "4 0.54684318 0.46416667 0.02240326 0.03500000"
+      ],
+      "sha256": "103cf11ba94dcae2fcd072d7185743f9781732f309daba75b60405c41c82d1a8",
+      "phash": "993366cc66669999",
+      "width": 491,
+      "height": 600,
+      "mirror_phash": "3399cc66cccc3333",
+      "split": "val"
+    },
+    {
+      "id": "pics-05",
+      "source": "pics",
+      "image": "pics/cigarette/free-photo-of-elderly-man-smoking-cigarette.webp",
+      "group": "pics-05",
+      "yolo_rows": [
+        "2 0.42700000 0.41000000 0.29800000 0.47500000",
+        "4 0.46900000 0.52375000 0.05400000 0.08250000"
+      ],
+      "sha256": "47d8ccacf7e0794ef7caffaf55086bf6c2a29a4847f1d514d85ca650483d6ab2",
+      "phash": "2382de8c369af963",
+      "width": 500,
+      "height": 400,
+      "mirror_phash": "99ac76669c3073c9",
+      "split": "train"
+    },
+    {
+      "id": "pics-07",
+      "source": "pics",
+      "image": "pics/cigarette/man-sitting-on-bed-smoking-a-cigarette.webp",
+      "group": "pics-07",
+      "yolo_rows": [
+        "2 0.66176471 0.33115468 0.13071895 0.19172113",
+        "4 0.60375817 0.41721133 0.02777778 0.03703704"
+      ],
+      "sha256": "4a9d724bf8c84ae4478f9c63b9dc383d66ccdfb7a75416d7488f7e32aed10de6",
+      "phash": "96c90f606996f26b",
+      "width": 612,
+      "height": 459,
+      "mirror_phash": "3e63a5cac73c58c1",
+      "split": "train"
+    },
+    {
+      "id": "pics-08",
+      "source": "pics",
+      "image": "pics/cigarette/overweight-senior-man-smoking-cigarette.webp",
+      "group": "pics-08",
+      "yolo_rows": [
+        "2 0.58169935 0.22794118 0.21568627 0.40196078",
+        "4 0.74101307 0.43137255 0.08333333 0.05882353"
+      ],
+      "sha256": "ed8bd22f39f741df9c7cca02c98f5b56e3d1ad2e550a9f08af7f534cd26077fd",
+      "phash": "9476e71e98d82693",
+      "width": 612,
+      "height": 408,
+      "mirror_phash": "3edc4db432728c39",
+      "split": "train"
+    },
+    {
+      "id": "pics-10",
+      "source": "pics",
+      "image": "pics/cigarette/portrait-of-handsome-guy-smoking-outdoors-young-man-smoking-cigarette-on-the-street-photo.webp",
+      "group": "pics-10",
+      "yolo_rows": [
+        "2 0.29670330 0.36285714 0.24908425 0.40571429",
+        "4 0.55952381 0.39285714 0.04945055 0.04857143"
+      ],
+      "sha256": "87c8afb94f30a5ad4e127c5385cbc2e901cefddf021001dfa17aedb683fffdff",
+      "phash": "1c6ce1c19ccda1ed",
+      "width": 546,
+      "height": 350,
+      "mirror_phash": "a6c64b6b26670b47",
+      "split": "train"
+    },
+    {
+      "id": "pics-11",
+      "source": "pics",
+      "image": "pics/cigarette/senior-man-lighting-up-a-cigarette-outdoors-against-green-nature-background-old-thoughtful.webp",
+      "group": "pics-11",
+      "yolo_rows": [
+        "2 0.63085938 0.33564815 0.36588542 0.67129630",
+        "4 0.30208333 0.50347222 0.14062500 0.03935185"
+      ],
+      "sha256": "70a8a71ce48248a0f07df5b7e7069e167c086a2d684ff02d98b1c5fc9e617c44",
+      "phash": "d45adab27c584a2d",
+      "width": 768,
+      "height": 432,
+      "mirror_phash": "7ef8701896f2e087",
+      "split": "train"
+    },
+    {
+      "id": "pics-12",
+      "source": "pics",
+      "image": "pics/cigarette/young-hipster-man-taking-rest-smoking-cigarette-with-nature-and-fresh-breeze-free-photo.webp",
+      "group": "pics-12",
+      "yolo_rows": [
+        "2 0.39428571 0.34428571 0.39238095 0.66571429",
+        "4 0.57904762 0.67857143 0.08761905 0.06000000"
+      ],
+      "sha256": "8480fd55e1faf12c7ad11a34783f57d6925024ce57e188eec5d6a628120f300d",
+      "phash": "9671b3d381e21d8d",
+      "width": 525,
+      "height": 350,
+      "mirror_phash": "3c9b19392b48b727",
+      "split": "test"
+    },
+    {
+      "id": "pics-13",
+      "source": "pics",
+      "image": "pics/kaska/5566168806d6f7cd010c57e9b4bc8da7696320efc7_m.webp",
+      "group": "pics-13",
+      "yolo_rows": [
+        "1 0.52000000 0.15400000 0.14400000 0.16400000"
+      ],
+      "sha256": "b08fde2bc44843930ff91477a39e80a827bc1a09b78a4cef13f4ae963ad7bfec",
+      "phash": "2c724e56338cbba3",
+      "width": 375,
+      "height": 250,
+      "mirror_phash": "86dae6fc99263189",
+      "split": "train"
+    },
+    {
+      "id": "pics-14",
+      "source": "pics",
+      "image": "pics/kaska/depositphotos_6671463-stock-photo-the-working-man.webp",
+      "group": "pics-14",
+      "yolo_rows": [
+        "1 0.72916667 0.15375000 0.27166667 0.30750000"
+      ],
+      "sha256": "e143f0d5f4638fbde8aacbc9fca8e4768a77a12a45ee677bf06d59123c0d22ee",
+      "phash": "7068cb6d8ce869a7",
+      "width": 600,
+      "height": 400,
+      "mirror_phash": "fae26bc72642c329",
+      "split": "train"
+    },
+    {
+      "id": "pics-15",
+      "source": "pics",
+      "image": "pics/kaska/inline_image_preview.webp",
+      "group": "pics-15",
+      "yolo_rows": [
+        "1 0.47100000 0.09074733 0.12200000 0.15302491"
+      ],
+      "sha256": "03f7e0b06f4cf869e776b5ca31d8758a95c716887e1122a64be34cf0ffe5ea01",
+      "phash": "c6fe30b1ce2c310f",
+      "width": 500,
+      "height": 281,
+      "mirror_phash": "6c549b5b64869ba5",
+      "split": "train"
+    },
+    {
+      "id": "pics-17",
+      "source": "pics",
+      "image": "pics/kaska/video_preview_0000.webp",
+      "group": "pics-17",
+      "yolo_rows": [
+        "1 0.54100000 0.18149466 0.16200000 0.19928826"
+      ],
+      "sha256": "d383bf70dc4819dc5f9abe6659f3f38b0238c9b2aeb45841830da3512ec1bcce",
+      "phash": "dee16c9e1961930b",
+      "width": 500,
+      "height": 281,
+      "mirror_phash": "744bc634b3cb39a1",
+      "split": "val"
+    },
+    {
+      "id": "pics-18",
+      "source": "pics",
+      "image": "pics/kaska/кавказский-мужчина-кровельщик-несущий-бревна-во-время-работы-на-стройке.webp",
+      "group": "pics-18",
+      "yolo_rows": [
+        "1 0.29820261 0.42034314 0.13235294 0.13480392"
+      ],
+      "sha256": "d2cde309ea6fe7b58522f13fe5a03b60007de2bdbe5f3d3a22f9e166f3531f48",
+      "phash": "3224edf9398b7381",
+      "width": 612,
+      "height": 408,
+      "mirror_phash": "98ce47539721d92b",
+      "split": "train"
+    },
+    {
+      "id": "pics-19",
+      "source": "pics",
+      "image": "pics/kaska/отчаяние-сотрудников-в-логистическом-бизнесе-sittng-в-контейнере.webp",
+      "group": "pics-19",
+      "yolo_rows": [
+        "1 0.36683007 0.41544118 0.05392157 0.06617647"
+      ],
+      "sha256": "4bd2ae8ea7076a902dc932970fcaeda37a40c30fb6c23fe28490ca8844ff78bc",
+      "phash": "986c739c0e70ef83",
+      "width": 612,
+      "height": 408,
+      "mirror_phash": "36ced936a4da4529",
+      "split": "train"
+    },
+    {
+      "id": "pics-20",
+      "source": "pics",
+      "image": "pics/kontrprimers/1645574516_20-sportishka-com-p-paren-v-kepke-turizm-krasivo-foto-24.webp",
+      "group": "pics-seaside-cap-series-conservative",
+      "yolo_rows": [
+        "2 0.69767442 0.34293194 0.29069767 0.39267016"
+      ],
+      "sha256": "9c25d04ccc564dbcc039b3efd4c3fbf6393c928e0ffd8115a856b340da460b3f",
+      "phash": "30d1cf6e6831278f",
+      "width": 860,
+      "height": 573,
+      "mirror_phash": "1a7965c4c39bcd25",
+      "split": "train"
+    },
+    {
+      "id": "pics-21",
+      "source": "pics",
+      "image": "pics/kontrprimers/1667807000_15-fashionhot-club-p-chelovek-v-kepke-18.webp",
+      "group": "pics-seaside-cap-series-conservative",
+      "yolo_rows": [
+        "2 0.49424460 0.41918103 0.35539568 0.50215517"
+      ],
+      "sha256": "5f028d6205f63423aa6946c3127ca5f56213f514afe7d2208602043c250ac418",
+      "phash": "472796cb19326bc5",
+      "width": 695,
+      "height": 464,
+      "mirror_phash": "6d8d3c61b398c14f",
+      "split": "train"
+    },
+    {
+      "id": "pics-22",
+      "source": "pics",
+      "image": "pics/kontrprimers/1669372884_33-fashionhot-club-p-paren-v-kepke-37.webp",
+      "group": "pics-22",
+      "yolo_rows": [
+        "2 0.63741007 0.29310345 0.29640288 0.45689655"
+      ],
+      "sha256": "ad7c62e1d3455aac94ed30391459f94edaa01bd2d4020363e70737ca42081b07",
+      "phash": "5999d94d4c32b327",
+      "width": 695,
+      "height": 464,
+      "mirror_phash": "b33171e7e690198d",
+      "split": "train"
+    },
+    {
+      "id": "pics-23",
+      "source": "pics",
+      "image": "pics/kontrprimers/1669372935_68-fashionhot-club-p-paren-v-kepke-73.webp",
+      "group": "pics-23",
+      "yolo_rows": [
+        "2 0.58920863 0.43225806 0.60863309 0.79569892"
+      ],
+      "sha256": "fc83659a1df142b0bdfdfb6d0dfb579f157e5f54fdffcd2ffc3247ed629cf414",
+      "phash": "98d08e4bbb5742ab",
+      "width": 695,
+      "height": 465,
+      "mirror_phash": "327ee4e111fdf801",
+      "split": "test"
+    },
+    {
+      "id": "pics-24",
+      "source": "pics",
+      "image": "pics/kontrprimers/1669372945_27-fashionhot-club-p-paren-v-kepke-31.webp",
+      "group": "pics-seaside-cap-series-conservative",
+      "yolo_rows": [
+        "2 0.74820144 0.30825959 0.19568345 0.36873156"
+      ],
+      "sha256": "37580bec70e2b88c9bed4c1de282d3ab54a9a972712a1548b99c2a9d38646899",
+      "phash": "0b69992d6d28d3c7",
+      "width": 695,
+      "height": 339,
+      "mirror_phash": "a1c33387c782796d",
+      "split": "train"
+    },
+    {
+      "id": "pics-26",
+      "source": "pics",
+      "image": "pics/kontrprimers/428a148dfeb1e669ed95ac0be0aaf63e.webp",
+      "group": "pics-26",
+      "yolo_rows": [
+        "2 0.43700787 0.28333333 0.47244094 0.42000000"
+      ],
+      "sha256": "8204ad848946ee66a97302e322340469263a718148988a0a8ae92c4478569c32",
+      "phash": "6499b264caee0779",
+      "width": 254,
+      "height": 300,
+      "mirror_phash": "ceb318ce6054add3",
+      "split": "test"
+    },
+    {
+      "id": "pics-30",
+      "source": "pics",
+      "image": "pics/kontrprimers/depositphotos_354232764-stock-photo-a-man-puts-on-a.webp",
+      "group": "pics-30",
+      "yolo_rows": [
+        "2 0.50666667 0.44125000 0.35333333 0.71250000"
+      ],
+      "sha256": "06468a2029e9e80c9318642b86852dcbe73aa65e3ed936933bfa3b8e489d86d2",
+      "phash": "78841c29c6a3bc7f",
+      "width": 600,
+      "height": 400,
+      "mirror_phash": "d22eb683ec0a1ed5",
+      "split": "val"
+    },
+    {
+      "id": "pics-31",
+      "source": "pics",
+      "image": "pics/kontrprimers/depositphotos_359126342-stock-photo-concerned-young-man-wearing-medical.webp",
+      "group": "pics-31",
+      "yolo_rows": [
+        "2 0.51666667 0.24875000 0.14666667 0.25250000"
+      ],
+      "sha256": "5493dd5e90954965d0e2c6abc85a873482b405ef40bfea05ca08f9f1df4d5578",
+      "phash": "910ad54cb79871e7",
+      "width": 600,
+      "height": 400,
+      "mirror_phash": "39807be61d32d34d",
+      "split": "train"
+    },
+    {
+      "id": "pics-32",
+      "source": "pics",
+      "image": "pics/kontrprimers/depositphotos_359778792-stock-photo-man-medical-mask-throwing-air.webp",
+      "group": "pics-32",
+      "yolo_rows": [
+        "2 0.62750000 0.23125000 0.17166667 0.33750000"
+      ],
+      "sha256": "4d29174e8496ea9374c3ec155ae00f3b3a35b691268e8a27e89e79cfe07a33fb",
+      "phash": "c94939634e39a1d7",
+      "width": 600,
+      "height": 400,
+      "mirror_phash": "63e383c964930b7d",
+      "split": "train"
+    },
+    {
+      "id": "pics-33",
+      "source": "pics",
+      "image": "pics/kontrprimers/depositphotos_367923416-stock-photo-man-medical-mask-holding-rag.webp",
+      "group": "pics-33",
+      "yolo_rows": [
+        "2 0.55583333 0.25000000 0.13500000 0.25500000"
+      ],
+      "sha256": "f19d48e5fc47cb8e34e9927be4bd12b16dd40e3c782c2fac1de722222ecc0c93",
+      "phash": "6f15d00e906d379b",
+      "width": 600,
+      "height": 400,
+      "mirror_phash": "853e7aa03ac79d31",
+      "split": "train"
+    },
+    {
+      "id": "pics-36",
+      "source": "pics",
+      "image": "pics/kontrprimers/pexels-photo-6690529.webp",
+      "group": "pics-36",
+      "yolo_rows": [
+        "2 0.52200000 0.36800000 0.87600000 0.60000000"
+      ],
+      "sha256": "70fff0f5b5da2979caebab4c272613929afcad693f1d34460fa26a258c9b3184",
+      "phash": "5ca6cb01ad38f517",
+      "width": 500,
+      "height": 750,
+      "mirror_phash": "f60c612b07925f9d",
+      "split": "train"
+    },
+    {
+      "id": "pics-37",
+      "source": "pics",
+      "image": "pics/kontrprimers/pexels-photo-7940557.webp",
+      "group": "pics-seaside-cap-series-conservative",
+      "yolo_rows": [
+        "2 0.53700000 0.28228228 0.17000000 0.24024024"
+      ],
+      "sha256": "c0d24ed6075dfe696ec1915e42be43a16e4080c9ebca96854c4f2de3a4777354",
+      "phash": "7675898a9831736d",
+      "width": 500,
+      "height": 333,
+      "mirror_phash": "c8df2320329bd9c7",
+      "split": "train"
+    },
+    {
+      "id": "pics-38",
+      "source": "pics",
+      "image": "pics/kontrprimers/portrait-smiling-young-man-holding-mobile-phone-yellow-background_93675-272315.webp",
+      "group": "pics-38",
+      "yolo_rows": [
+        "2 0.65540541 0.21602434 0.16486486 0.30223124"
+      ],
+      "sha256": "52b086cd92c64a9a73f938d88654c4b903258b53e827896c56d2b1486a00771e",
+      "phash": "69e9b6491236ec93",
+      "width": 740,
+      "height": 493,
+      "mirror_phash": "c3631ce3b89cc639",
+      "split": "val"
+    },
+    {
+      "id": "pics-42",
+      "source": "pics",
+      "image": "pics/respirator/9227576-a-man-in-a-respirator-and-glasses-suffering-from-smoke-and-heat-in-moscow-isolated-on-black.webp",
+      "group": "pics-42",
+      "yolo_rows": [
+        "2 0.62777778 0.47176080 0.41111111 0.90365449",
+        "3 0.54888889 0.70265781 0.40888889 0.53488372"
+      ],
+      "sha256": "0c31de708ef8ece4c53582ac17e411ffd38a399a1ad1ece0ed7e92fbf2759025",
+      "phash": "de314eb34c2d9629",
+      "width": 450,
+      "height": 301,
+      "mirror_phash": "74d9e419e6873c83",
+      "split": "train"
+    },
+    {
+      "id": "pics-43",
+      "source": "pics",
+      "image": "pics/respirator/depositphotos_176152296-stock-photo-selective-focus-man-respirator-holding.webp",
+      "group": "pics-43",
+      "yolo_rows": [
+        "2 0.52750000 0.46125000 0.21833333 0.44750000",
+        "3 0.52416667 0.55500000 0.17833333 0.21000000"
+      ],
+      "sha256": "0994fea1a82ab5084e7e6bfd2eae91aab819d22c5f0995bda326630cd2caf120",
+      "phash": "6c86274bac924b7d",
+      "width": 600,
+      "height": 400,
+      "mirror_phash": "c72c8de1063ae1d7",
+      "split": "val"
+    },
+    {
+      "id": "pics-44",
+      "source": "pics",
+      "image": "pics/respirator/depositphotos_197760852-stock-photo-man-respirator-crossed-hands-isolated.webp",
+      "group": "pics-44",
+      "yolo_rows": [
+        "2 0.34750000 0.32000000 0.15166667 0.30000000",
+        "3 0.35416667 0.39250000 0.13500000 0.16000000"
+      ],
+      "sha256": "cdb872a0960118edf35158c29a536ab8e8c16180b932297981112776c621dbf2",
+      "phash": "6c986793ec63831d",
+      "width": 600,
+      "height": 400,
+      "mirror_phash": "c632cd3946c929b7",
+      "split": "test"
+    },
+    {
+      "id": "pics-45",
+      "source": "pics",
+      "image": "pics/respirator/depositphotos_91685086-stock-photo-man-in-respirator-on-the.webp",
+      "group": "pics-45",
+      "yolo_rows": [
+        "2 0.53500000 0.33875000 0.43000000 0.67750000",
+        "3 0.53500000 0.50875000 0.48333333 0.62250000"
+      ],
+      "sha256": "d89a46ae033fb466aaac48469e6040eb6c939ba66e71c22948ca91c79fae6aa7",
+      "phash": "9abdf160a8913727",
+      "width": 600,
+      "height": 400,
+      "mirror_phash": "b0175bea023b9d8d",
+      "split": "train"
+    },
+    {
+      "id": "pics-47",
+      "source": "pics",
+      "image": "pics/respirator/worker-respirator-grey-background-space-text_495423-90869.webp",
+      "group": "pics-47",
+      "yolo_rows": [
+        "2 0.64189189 0.29352227 0.35945946 0.58704453",
+        "3 0.61689189 0.41902834 0.41216216 0.60728745"
+      ],
+      "sha256": "18954b391516203140753db2ab4657ca825b2eb28d98b02b46243e0ee4c03b57",
+      "phash": "e959322d5192b567",
+      "width": 740,
+      "height": 494,
+      "mirror_phash": "43f31807db301fcd",
+      "split": "train"
+    },
+    {
+      "id": "pics-48",
+      "source": "pics",
+      "image": "pics/respirator/работник-мужчина-в-полнолицевой-респираторной-маске-и-наушниках-для-работы-в-опасной-среде.webp",
+      "group": "pics-48",
+      "yolo_rows": [
+        "2 0.58660131 0.47671569 0.42156863 0.80637255",
+        "3 0.57516340 0.57965686 0.56535948 0.73284314"
+      ],
+      "sha256": "3bc1fd9a536b619f33359e472e2275f2e6237c3e1d63a7ed1e92f1ea107371e8",
+      "phash": "d8a5291e2926db67",
+      "width": 612,
+      "height": 408,
+      "mirror_phash": "f20f83b4838c73cd",
+      "split": "train"
+    }
+  ]
+}

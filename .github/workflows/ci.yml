@@ -1,0 +1,85 @@
+# Гейты зон на каждый pull request в main и на push в main (после слияния): гоняются только зоны, которых коснулись изменения.
+# Те же команды, что локально: python tasks.py gate-<зона>.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.sha }}  # по SHA: пуши подряд не гасят запуски друг друга
+  cancel-in-progress: false
+
+env:
+  MOSPROM_VERBOSE: "1"  # в CI полный вывод гейтов, а не только хвост ошибки
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      ml: ${{ steps.filter.outputs.ml }}
+      back: ${{ steps.filter.outputs.back }}
+      web: ${{ steps.filter.outputs.web }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          # ровно как ZONE_PREFIXES в tasks.py (сверяет tests/test_ci_workflow.py)
+          filters: |
+            ml:
+              - 'ml/**'
+              - 'demo/**'
+              - 'contracts/**'
+              - 'tasks.py'
+              - 'tests/**'
+              - 'ruff.toml'
+            back:
+              - 'backend/**'
+              - 'demo/**'
+              - 'contracts/**'
+              - 'tasks.py'
+              - 'ruff.toml'
+            web:
+              - 'web/**'
+              - 'contracts/**'
+              - 'tasks.py'
+
+  gate-ml:
+    needs: changes
+    if: needs.changes.outputs.ml == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python tasks.py gate-ml
+
+  gate-back:
+    needs: changes
+    if: needs.changes.outputs.back == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python tasks.py gate-back  # с e2e
+
+  gate-web:
+    needs: changes
+    if: needs.changes.outputs.web == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: python3 tasks.py gate-web

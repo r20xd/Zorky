@@ -1,0 +1,1315 @@
+[
+  {
+    "camera": "gmdcsa-s1-fall-01",
+    "type": "fall",
+    "start_s": 3.4,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-02",
+    "type": "fall",
+    "start_s": 1.9,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-03",
+    "type": "fall",
+    "start_s": 2.5,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-04",
+    "type": "fall",
+    "start_s": 2.3,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-05",
+    "type": "fall",
+    "start_s": 1.8,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-06",
+    "type": "fall",
+    "start_s": 2.2,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-07",
+    "type": "fall",
+    "start_s": 1.1,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-08",
+    "type": "fall",
+    "start_s": 0.8,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-09",
+    "type": "fall",
+    "start_s": 0.7,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-10",
+    "type": "fall",
+    "start_s": 0.7,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-11",
+    "type": "fall",
+    "start_s": 1.0,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-12",
+    "type": "fall",
+    "start_s": 1.9,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-13",
+    "type": "fall",
+    "start_s": 0.4,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-14",
+    "type": "fall",
+    "start_s": 0.3,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-15",
+    "type": "fall",
+    "start_s": 1.8,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s1-fall-16",
+    "type": "fall",
+    "start_s": 2.8,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-01",
+    "type": "fall",
+    "start_s": 1.4,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-02",
+    "type": "fall",
+    "start_s": 2.7,
+    "end_s": 8.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-03",
+    "type": "fall",
+    "start_s": 0.0,
+    "end_s": 7.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-04",
+    "type": "fall",
+    "start_s": 3.3,
+    "end_s": 10.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-05",
+    "type": "fall",
+    "start_s": 0.8,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-06",
+    "type": "fall",
+    "start_s": 2.1,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-07",
+    "type": "fall",
+    "start_s": 2.0,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-08",
+    "type": "fall",
+    "start_s": 3.2,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-09",
+    "type": "fall",
+    "start_s": 1.8,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-10",
+    "type": "fall",
+    "start_s": 2.0,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-10",
+    "type": "fall",
+    "start_s": 4.0,
+    "end_s": 11.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-11",
+    "type": "fall",
+    "start_s": 5.9,
+    "end_s": 10.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-12",
+    "type": "fall",
+    "start_s": 6.9,
+    "end_s": 12.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-13",
+    "type": "fall",
+    "start_s": 2.5,
+    "end_s": 8.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-14",
+    "type": "fall",
+    "start_s": 3.4,
+    "end_s": 11.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-15",
+    "type": "fall",
+    "start_s": 7.7,
+    "end_s": 11.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-16",
+    "type": "fall",
+    "start_s": 0.8,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-17",
+    "type": "fall",
+    "start_s": 2.5,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-18",
+    "type": "fall",
+    "start_s": 9.8,
+    "end_s": 11.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-19",
+    "type": "fall",
+    "start_s": 8.2,
+    "end_s": 15.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-20",
+    "type": "fall",
+    "start_s": 7.9,
+    "end_s": 11.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-21",
+    "type": "fall",
+    "start_s": 6.2,
+    "end_s": 9.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-22",
+    "type": "fall",
+    "start_s": 1.3,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-23",
+    "type": "fall",
+    "start_s": 3.6,
+    "end_s": 7.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-24",
+    "type": "fall",
+    "start_s": 3.3,
+    "end_s": 6.4,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s2-fall-25",
+    "type": "fall",
+    "start_s": 3.0,
+    "end_s": 7.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-01",
+    "type": "fall",
+    "start_s": 0.0,
+    "end_s": 3.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-02",
+    "type": "fall",
+    "start_s": 2.6,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-03",
+    "type": "fall",
+    "start_s": 1.5,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-04",
+    "type": "fall",
+    "start_s": 1.2,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-05",
+    "type": "fall",
+    "start_s": 3.2,
+    "end_s": 10.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-06",
+    "type": "fall",
+    "start_s": 0.0,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-07",
+    "type": "fall",
+    "start_s": 1.0,
+    "end_s": 9.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-08",
+    "type": "fall",
+    "start_s": 0.0,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-09",
+    "type": "fall",
+    "start_s": 3.3,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-10",
+    "type": "fall",
+    "start_s": 1.7,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-11",
+    "type": "fall",
+    "start_s": 4.7,
+    "end_s": 8.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-12",
+    "type": "fall",
+    "start_s": 1.6,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-13",
+    "type": "fall",
+    "start_s": 1.4,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-14",
+    "type": "fall",
+    "start_s": 8.1,
+    "end_s": 12.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-15",
+    "type": "fall",
+    "start_s": 1.9,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-16",
+    "type": "fall",
+    "start_s": 1.8,
+    "end_s": 7.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-17",
+    "type": "fall",
+    "start_s": 1.4,
+    "end_s": 8.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-18",
+    "type": "fall",
+    "start_s": 4.2,
+    "end_s": 11.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-19",
+    "type": "fall",
+    "start_s": 2.0,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-20",
+    "type": "fall",
+    "start_s": 2.3,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s3-fall-21",
+    "type": "fall",
+    "start_s": 5.4,
+    "end_s": 9.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-01",
+    "type": "fall",
+    "start_s": 1.8,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-02",
+    "type": "fall",
+    "start_s": 1.5,
+    "end_s": 2.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-03",
+    "type": "fall",
+    "start_s": 1.7,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-04",
+    "type": "fall",
+    "start_s": 1.2,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-05",
+    "type": "fall",
+    "start_s": 2.7,
+    "end_s": 7.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-06",
+    "type": "fall",
+    "start_s": 1.1,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-07",
+    "type": "fall",
+    "start_s": 2.4,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-08",
+    "type": "fall",
+    "start_s": 2.3,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-09",
+    "type": "fall",
+    "start_s": 2.3,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-10",
+    "type": "fall",
+    "start_s": 2.2,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-11",
+    "type": "fall",
+    "start_s": 1.2,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-12",
+    "type": "fall",
+    "start_s": 1.5,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-13",
+    "type": "fall",
+    "start_s": 0.3,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-14",
+    "type": "fall",
+    "start_s": 0.8,
+    "end_s": 5.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-15",
+    "type": "fall",
+    "start_s": 1.7,
+    "end_s": 4.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-16",
+    "type": "fall",
+    "start_s": 3.2,
+    "end_s": 7.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "gmdcsa-s4-fall-17",
+    "type": "fall",
+    "start_s": 2.8,
+    "end_s": 6.0,
+    "source": "CSV авторов набора"
+  },
+  {
+    "camera": "mixkit-32809",
+    "type": "running",
+    "start_s": 0.0,
+    "end_s": 9.5,
+    "draft": true
+  },
+  {
+    "camera": "mixkit-41764",
+    "type": "running",
+    "start_s": 0.0,
+    "end_s": 11.0,
+    "draft": true
+  },
+  {
+    "camera": "mixkit-716",
+    "type": "running",
+    "start_s": 6.0,
+    "end_s": 19.0,
+    "draft": true
+  },
+  {
+    "camera": "mixkit-4401",
+    "type": "overcrowding",
+    "start_s": 0.0,
+    "end_s": 19.8,
+    "draft": true
+  },
+  {
+    "camera": "mixkit-23378",
+    "type": "lone_worker",
+    "start_s": 0.0,
+    "end_s": 9.5,
+    "draft": true
+  },
+  {
+    "camera": "mixkit-23551",
+    "type": "lone_worker",
+    "start_s": 0.0,
+    "end_s": 11.0,
+    "draft": true
+  },
+  {
+    "camera": "mixkit-4705",
+    "type": "lone_worker",
+    "start_s": 0.0,
+    "end_s": 15.4,
+    "draft": true
+  },
+  {
+    "camera": "mixkit-41638",
+    "type": "phone",
+    "start_s": 0.0,
+    "end_s": 11.0,
+    "draft": true
+  },
+  {
+    "camera": "mixkit-269",
+    "type": "phone",
+    "start_s": 0.0,
+    "end_s": 12.4,
+    "draft": true
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "danger_zone",
+    "start_s": 0.0,
+    "end_s": 37.03
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 1.17,
+    "end_s": 3.0
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 2.97,
+    "end_s": 3.67
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 7.53,
+    "end_s": 14.1
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 16.77,
+    "end_s": 34.13
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 30.3,
+    "end_s": 35.07
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "danger_zone",
+    "start_s": 37.27,
+    "end_s": 110.8
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 37.7,
+    "end_s": 38.93
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 39.27,
+    "end_s": 49.73
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 52.07,
+    "end_s": 55.27
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 56.43,
+    "end_s": 71.43
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 62.93,
+    "end_s": 68.7
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 69.23,
+    "end_s": 69.87
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 77.4,
+    "end_s": 81.07
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 77.57,
+    "end_s": 78.23
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 84.93,
+    "end_s": 91.3
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 93.87,
+    "end_s": 95.0
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 101.43,
+    "end_s": 102.87
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 102.53,
+    "end_s": 103.03
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 106.13,
+    "end_s": 108.6
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 110.33,
+    "end_s": 118.73
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "danger_zone",
+    "start_s": 111.3,
+    "end_s": 136.23
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 112.53,
+    "end_s": 132.67
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 122.5,
+    "end_s": 129.33
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 122.57,
+    "end_s": 123.9
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 129.93,
+    "end_s": 131.8
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 134.1,
+    "end_s": 140.97
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "danger_zone",
+    "start_s": 140.27,
+    "end_s": 196.2
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 141.53,
+    "end_s": 142.9
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 152.97,
+    "end_s": 154.83
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 161.37,
+    "end_s": 162.67
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 171.47,
+    "end_s": 178.7
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 174.93,
+    "end_s": 176.23
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 189.0,
+    "end_s": 197.27
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 190.27,
+    "end_s": 192.2
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 198.8,
+    "end_s": 202.4
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "danger_zone",
+    "start_s": 200.03,
+    "end_s": 299.97
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 203.07,
+    "end_s": 204.33
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 204.1,
+    "end_s": 204.6
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 206.63,
+    "end_s": 207.9
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 209.57,
+    "end_s": 210.83
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 209.7,
+    "end_s": 213.57
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 211.03,
+    "end_s": 212.33
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 215.47,
+    "end_s": 217.9
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 218.63,
+    "end_s": 219.93
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 220.1,
+    "end_s": 223.83
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 228.87,
+    "end_s": 239.9
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 233.0,
+    "end_s": 246.07
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 237.53,
+    "end_s": 239.93
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 241.0,
+    "end_s": 243.17
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 253.83,
+    "end_s": 274.87
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 260.53,
+    "end_s": 261.8
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 271.1,
+    "end_s": 272.4
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 274.13,
+    "end_s": 275.43
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 275.7,
+    "end_s": 276.23
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "running",
+    "start_s": 282.73,
+    "end_s": 284.03
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 284.47,
+    "end_s": 284.97
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "vehicle_proximity",
+    "start_s": 284.67,
+    "end_s": 299.97
+  },
+  {
+    "camera": "nvidia-w015-cam00",
+    "type": "fence_crossing",
+    "start_s": 288.97,
+    "end_s": 289.47
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "danger_zone",
+    "start_s": 0.0,
+    "end_s": 37.03
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "vehicle_proximity",
+    "start_s": 0.0,
+    "end_s": 38.93
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 1.17,
+    "end_s": 3.0
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 10.97,
+    "end_s": 12.2
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 22.0,
+    "end_s": 23.33
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 26.9,
+    "end_s": 28.27
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 35.13,
+    "end_s": 36.47
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "danger_zone",
+    "start_s": 37.27,
+    "end_s": 110.8
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 41.07,
+    "end_s": 42.97
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "vehicle_proximity",
+    "start_s": 51.77,
+    "end_s": 53.7
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 52.27,
+    "end_s": 53.6
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "vehicle_proximity",
+    "start_s": 54.13,
+    "end_s": 61.93
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 55.77,
+    "end_s": 57.07
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 59.53,
+    "end_s": 60.87
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "vehicle_proximity",
+    "start_s": 64.57,
+    "end_s": 72.07
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 72.5,
+    "end_s": 73.83
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "vehicle_proximity",
+    "start_s": 72.97,
+    "end_s": 82.47
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 76.07,
+    "end_s": 77.4
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 82.23,
+    "end_s": 84.23
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "vehicle_proximity",
+    "start_s": 85.0,
+    "end_s": 88.13
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "vehicle_proximity",
+    "start_s": 88.23,
+    "end_s": 299.97
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 92.77,
+    "end_s": 94.07
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 94.17,
+    "end_s": 95.47
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "danger_zone",
+    "start_s": 111.37,
+    "end_s": 136.23
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 122.57,
+    "end_s": 123.9
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 128.73,
+    "end_s": 131.8
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "danger_zone",
+    "start_s": 140.27,
+    "end_s": 196.2
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 141.6,
+    "end_s": 142.9
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 152.97,
+    "end_s": 154.83
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 161.37,
+    "end_s": 162.67
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 166.5,
+    "end_s": 168.33
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 190.27,
+    "end_s": 192.2
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "danger_zone",
+    "start_s": 200.03,
+    "end_s": 299.97
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 211.03,
+    "end_s": 212.33
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 218.63,
+    "end_s": 219.93
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 237.53,
+    "end_s": 239.93
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 260.53,
+    "end_s": 261.8
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 266.0,
+    "end_s": 267.93
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 274.13,
+    "end_s": 275.43
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 277.47,
+    "end_s": 279.37
+  },
+  {
+    "camera": "nvidia-w015-cam01",
+    "type": "running",
+    "start_s": 284.93,
+    "end_s": 286.8
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "running",
+    "start_s": 1.2,
+    "end_s": 3.0
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "vehicle_proximity",
+    "start_s": 7.07,
+    "end_s": 8.47
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "running",
+    "start_s": 10.97,
+    "end_s": 12.13
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "running",
+    "start_s": 55.77,
+    "end_s": 57.07
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "vehicle_proximity",
+    "start_s": 59.93,
+    "end_s": 65.47
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "running",
+    "start_s": 75.3,
+    "end_s": 76.53
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "running",
+    "start_s": 140.0,
+    "end_s": 141.33
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "vehicle_proximity",
+    "start_s": 175.13,
+    "end_s": 176.47
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "vehicle_proximity",
+    "start_s": 205.57,
+    "end_s": 207.13
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "vehicle_proximity",
+    "start_s": 207.33,
+    "end_s": 213.37
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "vehicle_proximity",
+    "start_s": 214.4,
+    "end_s": 216.3
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "vehicle_proximity",
+    "start_s": 218.6,
+    "end_s": 221.77
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "vehicle_proximity",
+    "start_s": 224.73,
+    "end_s": 226.17
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "vehicle_proximity",
+    "start_s": 237.47,
+    "end_s": 239.0
+  },
+  {
+    "camera": "nvidia-w015-cam02",
+    "type": "vehicle_proximity",
+    "start_s": 293.2,
+    "end_s": 299.13
+  }
+]

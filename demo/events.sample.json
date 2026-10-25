@@ -1,0 +1,99 @@
+[
+  {
+    "camera_id": "cam-1",
+    "ts": "2026-10-21T10:00:00Z",
+    "frame_id": 120,
+    "type": "danger_zone",
+    "bbox": [
+      0.62,
+      0.35,
+      0.74,
+      0.92
+    ],
+    "confidence": 0.91,
+    "track_id": 7,
+    "zone_id": "z-1",
+    "severity": "high",
+    "incident_id": "inc-001",
+    "count": 1,
+    "first_seen": "2026-10-21T10:00:00Z",
+    "last_seen": "2026-10-21T10:00:00Z"
+  },
+  {
+    "camera_id": "cam-1",
+    "ts": "2026-10-21T10:00:04Z",
+    "frame_id": 220,
+    "type": "no_helmet",
+    "bbox": [
+      0.21,
+      0.18,
+      0.33,
+      0.81
+    ],
+    "confidence": 0.84,
+    "track_id": 3,
+    "severity": "high",
+    "incident_id": "inc-002",
+    "count": 2,
+    "first_seen": "2026-10-21T10:00:04Z",
+    "last_seen": "2026-10-21T10:00:04Z"
+  },
+  {
+    "camera_id": "cam-2",
+    "ts": "2026-10-21T10:00:09Z",
+    "frame_id": 75,
+    "type": "no_respirator",
+    "bbox": [
+      0.45,
+      0.22,
+      0.58,
+      0.88
+    ],
+    "confidence": 0.77,
+    "track_id": 12,
+    "severity": "medium",
+    "incident_id": "inc-003",
+    "count": 3,
+    "first_seen": "2026-10-21T10:00:09Z",
+    "last_seen": "2026-10-21T10:00:09Z"
+  },
+  {
+    "camera_id": "cam-2",
+    "ts": "2026-10-21T10:00:15Z",
+    "frame_id": 310,
+    "type": "smoking",
+    "bbox": [
+      0.05,
+      0.3,
+      0.17,
+      0.95
+    ],
+    "confidence": 0.68,
+    "track_id": 15,
+    "zone_id": "z-2",
+    "severity": "high",
+    "incident_id": "inc-004",
+    "count": 1,
+    "first_seen": "2026-10-21T10:00:15Z",
+    "last_seen": "2026-10-21T10:00:15Z"
+  },
+  {
+    "camera_id": "cam-1",
+    "ts": "2026-10-21T10:00:21Z",
+    "frame_id": 540,
+    "type": "no_helmet",
+    "bbox": [
+      0.48,
+      0.2,
+      0.6,
+      0.85
+    ],
+    "confidence": 0.88,
+    "track_id": 9,
+    "severity": "high",
+    "incident_id": "inc-005",
+    "count": 2,
+    "first_seen": "2026-10-21T10:00:21Z",
+    "last_seen": "2026-10-21T10:00:21Z"
+  }
+]

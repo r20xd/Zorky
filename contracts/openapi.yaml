@@ -1,0 +1,1603 @@
+openapi: 3.0.3
+info:
+  title: Zorky backend API
+  version: 0.1.0
+  description: |
+    Контракт бэкенда: единственный источник правды о данных между воркером, бэкендом и вебом.
+    Тело события (EventIn) обязано совпадать с contracts/events.schema.json — это проверяет
+    ml/tests/test_contracts.py. Все координаты (bbox, полигоны зон) нормированы к 0..1 от размера кадра.
+servers:
+  - url: http://localhost:8080
+
+security:
+  - sessionCookie: []
+
+paths:
+  /healthz:
+    get:
+      security: []
+      summary: Бэкенд жив
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+
+  /api/phone/{id}/frame:
+    post:
+      summary: Кадр с камеры телефона (страница /phone-cam.html или камера в браузере) - admin, operator, specialist
+      description: |
+        Тело - JPEG. Камера с таким id заводится сама («Камера телефона» или имя из `?name=`), её source - адрес
+        потока `/api/phone/{id}.mjpg`, который читает воркер на этой же машине.
+      parameters:
+        - $ref: "#/components/parameters/Id"
+        - name: name
+          in: query
+          required: false
+          description: Имя камеры при автосоздании, до 64 символов
+          schema:
+            type: string
+            maxLength: 64
+      requestBody:
+        required: true
+        content:
+          image/jpeg:
+            schema:
+              type: string
+              format: binary
+      responses:
+        "204":
+          description: Кадр принят
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+  /api/phone/{id}.mjpg:
+    get:
+      summary: Сырые кадры телефона как MJPEG - для воркера и вошедших людей
+      description: Воркер передаёт токен в `?token=` (cv2 не умеет заголовки); человек - cookie сессии.
+      parameters:
+        - $ref: "#/components/parameters/Id"
+        - name: token
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Поток multipart/x-mixed-replace
+          content:
+            multipart/x-mixed-replace:
+              schema:
+                type: string
+                format: binary
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/demo/videos:
+    get:
+      summary: Демо-видео - состояние (admin; вне демо-режима enabled=false и пустые списки)
+      responses:
+        "200":
+          description: Видео на этой машине и что сейчас идёт по кругу
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DemoState"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+    post:
+      summary: Загрузить своё видео для демо (admin, только MOSPROM_DEMO=1)
+      description: Тело - файл как есть (без multipart), имя - в `?name=`; расширения mp4, avi, mkv, mov, webm; до 2 ГБ.
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        "201":
+          description: Файл сохранён
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DemoState"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "413":
+          description: Файл больше 2 ГБ
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /api/demo/videos/{name}:
+    delete:
+      summary: Удалить загруженное демо-видео (admin)
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Удалено
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /api/demo/play:
+    post:
+      summary: Пустить видео по кругу как камеру (admin, демо)
+      description: Камера с таким id заводится сама (имя - из имени файла); кадры идут в превью камеры.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [camera_id, video]
+              properties:
+                camera_id:
+                  type: string
+                video:
+                  type: string
+                name:
+                  type: string
+                  description: Название камеры, если её ещё нет (до 64 символов)
+                detect:
+                  type: boolean
+                  description: true - источник камеры = файл для воркера с моделью (без зацикливателя кадров)
+      responses:
+        "202":
+          description: Запущено
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DemoState"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /api/demo/stop:
+    post:
+      summary: Остановить зацикленное видео камеры (admin, демо)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [camera_id]
+              properties:
+                camera_id:
+                  type: string
+      responses:
+        "200":
+          description: Остановлено
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DemoState"
+
+  /api/linq:
+    get:
+      summary: Состояние подключения к LinQ - для раздела «LinQ» в дашборде
+      description: |
+        Права - admin, manager. Статус (брокер стенда отвечает или нет), отчёт последней проверки
+        стенда (программы .tpu, модули, готовность), выбранное устройство и хвост журнала подключения
+        без чувствительных строк. Доступы (VPN, Jupyter) через API не принимаются и не отдаются.
+      responses:
+        "200":
+          description: Состояние
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LinqStatus"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+  /api/linq/connect:
+    post:
+      summary: Подключиться к LinQ (запускает задачу linq-up на машине бэкенда)
+      description: Права - admin. 409, если задача планировщика не настроена (scripts/linq-auto-setup.bat).
+      responses:
+        "202":
+          description: Запущено; прогресс - в GET /api/linq (busy, log)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LinqStatus"
+        "409":
+          description: Задача запуска не настроена
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+  /api/linq/disconnect:
+    post:
+      summary: Отключиться от LinQ (останавливает OpenVPN, поднятый linq-up)
+      description: Права - admin.
+      responses:
+        "202":
+          description: Запущено
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LinqStatus"
+        "409":
+          description: Задача остановки не настроена
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+  /api/linq/config:
+    put:
+      summary: Выбрать устройство инференса (cpu, gpu, linq)
+      description: |
+        Права - admin. Выбор запоминается на машине бэкенда; воркеры берут его при запуске
+        (`tasks.py run`). В демо-режиме по умолчанию выбран linq.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [device]
+              properties:
+                device:
+                  type: string
+                  enum: [cpu, gpu, linq]
+      responses:
+        "200":
+          description: Состояние с новым устройством
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LinqStatus"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+  /api/auth/demo:
+    get:
+      summary: Роли для входа в один клик (только демо-режим, MOSPROM_DEMO=1)
+      description: Вне демо-режима - пустой список. Без сессии.
+      security: []
+      responses:
+        "200":
+          description: Демо-пользователи без паролей
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Me"
+    post:
+      summary: Войти за демо-пользователя без пароля (только демо-режим)
+      description: |
+        Работает только при MOSPROM_DEMO=1 и только для пользователей, созданных демо.
+        Успех - cookie сессии, как у /api/auth/login. Иначе 404.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [login]
+              properties:
+                login:
+                  type: string
+      responses:
+        "200":
+          description: Вошёл; Set-Cookie с сессией
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Me"
+        "404":
+          description: Демо-режим выключен или такого демо-пользователя нет
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /api/auth/login:
+    post:
+      summary: Вход оператора, мастера, специалиста, руководителя, аудитора или администратора
+      description: |
+        Успех — cookie сессии `session` (HttpOnly, SameSite=Strict, Secure за https).
+        При переборе пароля — 429 с заголовком Retry-After.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [login, password]
+              properties:
+                login:
+                  type: string
+                password:
+                  type: string
+                  format: password
+      responses:
+        "200":
+          description: Вошёл; Set-Cookie с сессией
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+                example: session=abc123; HttpOnly; SameSite=Strict; Path=/
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Me"
+        "401":
+          description: Неверный логин или пароль
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "429":
+          description: Слишком много попыток входа, повторить позже
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /api/auth/logout:
+    post:
+      summary: Выход, сессия сбрасывается
+      responses:
+        "204":
+          description: Вышел; cookie очищена
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/auth/me:
+    get:
+      summary: Кто сейчас вошёл
+      responses:
+        "200":
+          description: Текущий пользователь
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Me"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/auth/password:
+    post:
+      summary: Сменить свой пароль (все вошедшие, в том числе с must_change_password)
+      description: Новый пароль не короче 10 символов и не равен старому; после смены must_change_password=false.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PasswordChange"
+      responses:
+        "204":
+          description: Пароль сменён
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          description: Неверный old_password
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /api/users:
+    get:
+      summary: Список пользователей (только admin)
+      description: Права - только admin; остальные роли получают 403. Паролей и хешей нет.
+      responses:
+        "200":
+          description: Пользователи
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+    post:
+      summary: Создать пользователя (только admin)
+      description: Права - только admin; остальные роли получают 403. Создаётся с must_change_password=true.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserCreate"
+      responses:
+        "201":
+          description: Создан; temp_password показывается один раз
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserWithTempPassword"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "409":
+          description: Такой login уже есть
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /api/users/{login}:
+    patch:
+      summary: Изменить имя, роль, active (только admin)
+      description: |
+        Права - только admin; остальные роли получают 403.
+        Нельзя отключить или понизить последнего активного admin - 409.
+      parameters:
+        - name: login
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserPatch"
+      responses:
+        "200":
+          description: Обновлён
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          description: Это последний активный admin - его нельзя отключить или понизить
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /api/users/{login}/reset-password:
+    post:
+      summary: Сбросить пароль (только admin)
+      description: Права - только admin; остальные роли получают 403. Без тела - генерирует временный пароль; с password - ставит его.
+      parameters:
+        - name: login
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PasswordReset"
+      responses:
+        "200":
+          description: Новый temp_password, показывается один раз
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TempPassword"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /api/events:
+    get:
+      summary: Журнал нарушений, новые сверху
+      parameters:
+        - name: type
+          in: query
+          schema:
+            $ref: "#/components/schemas/ViolationType"
+        - name: camera
+          in: query
+          schema:
+            type: string
+        - name: zone
+          in: query
+          schema:
+            type: string
+        - name: status
+          in: query
+          schema:
+            $ref: "#/components/schemas/EventStatus"
+        - name: from
+          in: query
+          description: ts не раньше (ISO 8601)
+          schema:
+            type: string
+            format: date-time
+        - name: to
+          in: query
+          description: ts не позже (ISO 8601)
+          schema:
+            type: string
+            format: date-time
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+            default: 100
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+      responses:
+        "200":
+          description: События (страница); общее число под фильтром — в заголовке X-Total-Count
+          headers:
+            X-Total-Count:
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Event"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      summary: Новое нарушение (от ML-воркера)
+      security:
+        - workerToken: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EventIn"
+      responses:
+        "201":
+          description: Принято, разослано в живую ленту и уведомления
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/events/{id}:
+    patch:
+      summary: Разметка оператором или мастером — подтверждено, ложное, передано мастеру, решено
+      description: Права - только operator и master; manager, specialist, auditor и admin получают 403.
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [status]
+              properties:
+                status:
+                  $ref: "#/components/schemas/EventStatus"
+                by:
+                  type: string
+                  description: "Игнорируется: кто — из сессии (login пользователя); в status_history пишется он"
+                reason:
+                  $ref: "#/components/schemas/FalseReason"
+      responses:
+        "200":
+          description: Обновлено
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /api/stream:
+    get:
+      summary: Живая лента нарушений (Server-Sent Events)
+      description: |
+        Поток text/event-stream. Каждое новое нарушение — сообщение `event: violation`
+        с `data: <Event в JSON>`. Раз в 15 секунд — комментарий `: ping`.
+        Повтор в окне склейки и смена статуса (оператор, мастер) — `event: update` с тем же `Event`:
+        счётчик `count` и `status` обновляются без перезагрузки страницы.
+        Ещё сообщения: `event: master` (`data: <Event>` — инцидент передан мастеру) и
+        `event: escalation` (`data: <Event>` — мастер не ответил за отведённое время).
+        Передача мастеру по участкам: `event: master` получают операторы и те master, у которых
+        в `areas` есть `Camera.area` камеры инцидента. master без `areas` (поля нет или пусто)
+        получает всё - обратная совместимость; у камеры без `area` инцидент идёт всем мастерам.
+        Если ни одного подходящего мастера нет в сети, `master` уходит всем мастерам в сети, а
+        операторам - `event: escalation` с полем `note: "нет мастера участка"`.
+        Нужна сессия (cookie).
+        В браузере: `new EventSource("/api/stream")`, переподключение автоматическое.
+      responses:
+        "200":
+          description: Поток событий
+          content:
+            text/event-stream:
+              schema:
+                type: string
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/cameras:
+    get:
+      summary: Список камер
+      description: |
+        Права - любая роль; воркер берёт свои камеры этим же запросом (Bearer-токен).
+        Поле `source` отдаётся только admin и воркеру (по токену); остальным ролям - без него.
+      security:
+        - sessionCookie: []
+        - workerToken: []
+      responses:
+        "200":
+          description: Камеры
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Camera"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      summary: Добавить или обновить камеру (по id)
+      description: |
+        Права - admin и specialist; остальные роли получают 403. Специалист заводит новую камеру
+        (например, при вводе нового участка), но не перезаписывает существующую - 403.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Camera"
+      responses:
+        "201":
+          description: Сохранено
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Camera"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+  /api/cameras/{id}:
+    patch:
+      summary: Перенести камеру на участок, переименовать, задать её правила (admin и specialist)
+      description: |
+        Меняет только присланные поля; адрес источника не трогает. `area: null` или пустая строка снимает
+        камеру с участка; `rules: null` возвращает правила участка. Участок, которого нет, создаётся сам.
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                name:
+                  type: string
+                area:
+                  type: [string, "null"]
+                rules:
+                  type: [array, "null"]
+                  items:
+                    type: string
+                rule_schedule:
+                  type: [object, "null"]
+                  description: |
+                    Когда действует каждое правило (местное время): код типа -> {start, end} «ЧЧ:ММ»,
+                    start > end - через полночь. Правила без записи действуют всегда.
+                  additionalProperties:
+                    $ref: "#/components/schemas/Schedule"
+      responses:
+        "200":
+          description: Камера после изменения
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Camera"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    delete:
+      summary: Удалить камеру (только admin; остальные роли - 403)
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "204":
+          description: Удалена
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /api/cameras/{id}/rules:
+    get:
+      summary: Какие нарушения контролирует камера (воркер перечитывает раз в несколько секунд)
+      description: |
+        Свои правила камеры, иначе правила её участка, иначе `enabled: null` - набор по умолчанию
+        из `ml/worker/rules.yaml`. Пустой список - не контролировать ничего.
+      security:
+        - sessionCookie: []
+        - workerToken: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Правила камеры
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [enabled, source]
+                properties:
+                  enabled:
+                    type: [array, "null"]
+                    items:
+                      type: string
+                  source:
+                    type: string
+                    enum: [camera, area, default]
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /api/areas:
+    get:
+      summary: Участки с камерами и общими правилами
+      description: Права - любая роль (и воркер). Участки, известные только по камерам, тоже в списке.
+      security:
+        - sessionCookie: []
+        - workerToken: []
+      responses:
+        "200":
+          description: Участки
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Area"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/areas/{name}:
+    put:
+      summary: Создать участок или изменить его правила (admin и specialist)
+      description: "`rules: null` или нет поля - набор по умолчанию; список кодов из реестра - контролировать только их."
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                rules:
+                  type: [array, "null"]
+                  items:
+                    type: string
+                rule_schedule:
+                  type: [object, "null"]
+                  description: |
+                    Когда действует каждое правило (местное время): код типа -> {start, end} «ЧЧ:ММ»,
+                    start > end - через полночь. Правила без записи действуют всегда.
+                  additionalProperties:
+                    $ref: "#/components/schemas/Schedule"
+      responses:
+        "200":
+          description: Участок
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Area"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+    delete:
+      summary: Удалить участок без камер (admin и specialist)
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Удалён
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "409":
+          description: На участке есть камеры
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /api/cameras/{id}/zones:
+    get:
+      summary: Зоны камеры (воркер перечитывает их раз в несколько секунд)
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Зоны
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Zone"
+    put:
+      summary: Заменить все зоны камеры (редактор зон; только specialist; воркер читает GET с токеном)
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Zone"
+      responses:
+        "200":
+          description: Сохранено
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Zone"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+  /api/cameras/{id}/frame:
+    post:
+      summary: Превью-кадр от воркера, ~5 кадров/с
+      description: Бэкенд хранит последний кадр камеры и раздаёт его через /mjpeg, не декодируя.
+      security:
+        - workerToken: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      requestBody:
+        required: true
+        content:
+          image/jpeg:
+            schema:
+              type: string
+              format: binary
+      responses:
+        "204":
+          description: Принято
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/cameras/{id}/mjpeg:
+    get:
+      summary: Живое превью камеры для <img src>
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Поток multipart/x-mixed-replace из JPEG-кадров
+          content:
+            multipart/x-mixed-replace:
+              schema:
+                type: string
+                format: binary
+
+  /api/snapshots:
+    post:
+      summary: Загрузить снимок нарушения
+      security:
+        - workerToken: []
+      requestBody:
+        required: true
+        content:
+          image/jpeg:
+            schema:
+              type: string
+              format: binary
+      responses:
+        "201":
+          description: Сохранено; url подставить в snapshot_url события
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [url]
+                properties:
+                  url:
+                    type: string
+                    example: /api/snapshots/evt-000001.jpg
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/snapshots/{name}:
+    get:
+      summary: Снимок нарушения
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: JPEG
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /api/metrics:
+    post:
+      summary: Метрики инференса от воркера раз в несколько секунд
+      security:
+        - workerToken: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Metrics"
+      responses:
+        "204":
+          description: Принято
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    get:
+      description: Права - manager, admin (и dev-режим); остальные роли читают журнал, не метрики.
+      summary: Последние метрики по каждой камере — для виджета LinQ на дашборде
+      responses:
+        "200":
+          description: Метрики
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Metrics"
+
+components:
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+
+  securitySchemes:
+    sessionCookie:
+      type: apiKey
+      in: cookie
+      name: session
+      description: Сессия после POST /api/auth/login (HttpOnly, SameSite=Strict). Чтение и действия людей.
+    workerToken:
+      type: http
+      scheme: bearer
+      description: "Токен ML-воркера: Authorization: Bearer <WORKER_TOKEN>. Только POST /api/events, /frame, /snapshots, /metrics."
+
+  responses:
+    Unauthorized:
+      description: Нет сессии или токена, либо они недействительны
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Forbidden:
+      description: Роль не разрешает это действие, либо при must_change_password - «смените пароль»
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    BadRequest:
+      description: Тело не по контракту
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    NotFound:
+      description: Не найдено
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+
+  schemas:
+    Role:
+      type: string
+      description: |
+        operator и master — разметка событий (PATCH); specialist — зоны (PUT);
+        manager — аналитика на чтение;
+        auditor (служба ОТ и юристы) — журнал, CSV, история и аналитика только на чтение;
+        admin (ИТ) — камеры (POST, DELETE), метрики, всё остальное на чтение.
+        Права по путям — в описании каждого пути; без права — 403.
+      enum: [operator, master, specialist, manager, auditor, admin]
+    DemoState:
+      type: object
+      required: [enabled, videos, players, folder]
+      properties:
+        enabled:
+          type: boolean
+        folder:
+          type: string
+          description: Папка с загруженными видео на машине бэкенда
+        videos:
+          type: array
+          items:
+            type: object
+            required: [name, mb]
+            properties:
+              name:
+                type: string
+              mb:
+                type: number
+        players:
+          type: array
+          items:
+            type: object
+            required: [camera_id, video]
+            properties:
+              camera_id:
+                type: string
+              video:
+                type: string
+
+    LinqStatus:
+      type: object
+      required: [state, busy, host, device, devices, ready, log]
+      properties:
+        state:
+          type: string
+          enum: [connected, disconnected]
+          description: Брокер RabbitMQ стенда отвечает или нет
+        busy:
+          type: boolean
+          description: Идёт подключение или отключение
+        host:
+          type: string
+        device:
+          type: string
+          enum: [cpu, gpu, linq]
+        devices:
+          type: array
+          items:
+            type: string
+        ready:
+          type: boolean
+          description: Стенд доступен и по отчёту готов (брокер, модули, есть программы .tpu)
+        report:
+          type: object
+          nullable: true
+          description: Последний отчёт стенда (программы, модули, время проверки)
+          additionalProperties: true
+        bench:
+          type: object
+          nullable: true
+          description: |
+            Замеры нашей программы на ускорителе из репозитория (docs/measured.json и
+            ml/export/linq_results): задержка, кадры/с при 1/2/4 запросах в полёте, лучший порог
+            по F1 против ONNX FP32, повторный замер под нагрузкой стенда (`loaded`). null - замеров нет.
+          additionalProperties: true
+        log:
+          type: array
+          items:
+            type: string
+
+    Me:
+      type: object
+      required: [login, name, role]
+      properties:
+        login:
+          type: string
+        name:
+          type: string
+        role:
+          $ref: "#/components/schemas/Role"
+        must_change_password:
+          type: boolean
+          description: |
+            true - пароль временный. Пока он не сменён, доступны только POST /api/auth/password,
+            GET /api/auth/me и POST /api/auth/logout; остальное - 403 «смените пароль».
+        areas:
+          type: array
+          items:
+            type: string
+          description: Участки пользователя (для master); поля нет или пусто - мастер видит все участки
+    User:
+      type: object
+      description: Пользователь; паролей и хешей нет
+      required: [login, name, role, active, created_at, created_by]
+      properties:
+        login:
+          type: string
+        name:
+          type: string
+        role:
+          $ref: "#/components/schemas/Role"
+        active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          type: string
+        areas:
+          type: array
+          items:
+            type: string
+          description: Участки пользователя (для master); поля нет или пусто - мастер видит все участки
+    UserCreate:
+      type: object
+      additionalProperties: false
+      required: [login, name, role]
+      properties:
+        login:
+          type: string
+        name:
+          type: string
+        role:
+          $ref: "#/components/schemas/Role"
+        areas:
+          type: array
+          items:
+            type: string
+          description: Участки пользователя (для master); поля нет или пусто - мастер видит все участки
+        password:
+          type: string
+          minLength: 10
+          description: Пароль, который задаёт admin; нет - генерируется временный и возвращается в temp_password
+        must_change_password:
+          type: boolean
+          default: true
+          description: Потребовать смену пароля при первом входе (действует только с password)
+    PasswordReset:
+      type: object
+      additionalProperties: false
+      properties:
+        password:
+          type: string
+          minLength: 10
+          description: Новый пароль от admin; нет - генерируется временный
+        must_change_password:
+          type: boolean
+          default: true
+    UserPatch:
+      type: object
+      additionalProperties: false
+      minProperties: 1
+      properties:
+        name:
+          type: string
+        role:
+          $ref: "#/components/schemas/Role"
+        active:
+          type: boolean
+        areas:
+          type: array
+          items:
+            type: string
+          description: Участки пользователя (для master); пустой список снимает ограничение - мастер видит все участки
+    UserWithTempPassword:
+      type: object
+      required: [user, temp_password]
+      properties:
+        user:
+          $ref: "#/components/schemas/User"
+        temp_password:
+          type: [string, "null"]
+          description: Сгенерированный пароль, показывается один раз; null, если admin задал пароль сам
+    TempPassword:
+      type: object
+      required: [temp_password]
+      properties:
+        temp_password:
+          type: [string, "null"]
+          description: Сгенерированный пароль, показывается один раз; null, если admin задал пароль сам
+    PasswordChange:
+      type: object
+      additionalProperties: false
+      required: [old_password, new_password]
+      properties:
+        old_password:
+          type: string
+          format: password
+        new_password:
+          type: string
+          format: password
+          minLength: 10
+    ViolationType:
+      type: string
+      description: Код из contracts/violation_types.json. at_height - контроль присутствия человека в зоне kind=height (проверьте страховку), а не детекция отсутствия привязи
+      enum: [no_helmet, no_respirator, danger_zone, smoking, fall, immobile, vehicle_proximity, running, phone, fence_crossing, under_load, distress_signal, lone_worker, overcrowding, at_height, loitering, vehicle_in_zone, vehicle_collision]
+
+    EventStatus:
+      type: string
+      enum: [new, confirmed, sent_to_master, resolved, "false"]
+
+    Severity:
+      type: string
+      enum: [low, medium, high, critical]
+
+    FalseReason:
+      type: string
+      description: Причина «ложного»; необязательна, допустима только со статусом `false` (иначе 400)
+      enum: [not_person, ppe_present, wrong_zone, duplicate, other]
+
+    StatusChange:
+      type: object
+      required: [status, ts, by]
+      properties:
+        status:
+          $ref: "#/components/schemas/EventStatus"
+        ts:
+          type: string
+          format: date-time
+        by:
+          type: string
+          description: Кто сменил статус (оператор или system)
+        reason:
+          $ref: "#/components/schemas/FalseReason"
+
+    BBox:
+      type: array
+      description: "[x1, y1, x2, y2], нормированные 0..1; x1 < x2, y1 < y2"
+      items:
+        type: number
+        minimum: 0
+        maximum: 1
+      minItems: 4
+      maxItems: 4
+
+    Point:
+      type: array
+      description: "[x, y], нормированные 0..1"
+      items:
+        type: number
+        minimum: 0
+        maximum: 1
+      minItems: 2
+      maxItems: 2
+
+    EventIn:
+      description: То же, что contracts/events.schema.json
+      type: object
+      additionalProperties: false
+      required: [camera_id, ts, frame_id, type, bbox, confidence]
+      properties:
+        camera_id:
+          type: string
+          minLength: 1
+        ts:
+          type: string
+          format: date-time
+        frame_id:
+          type: integer
+          minimum: 0
+        type:
+          $ref: "#/components/schemas/ViolationType"
+        bbox:
+          $ref: "#/components/schemas/BBox"
+        confidence:
+          type: number
+          minimum: 0
+          maximum: 1
+        track_id:
+          type: integer
+          minimum: 0
+        snapshot_url:
+          type: string
+        zone_id:
+          type: string
+        severity:
+          $ref: "#/components/schemas/Severity"
+        incident_id:
+          type: string
+        count:
+          type: integer
+          minimum: 1
+        first_seen:
+          type: string
+          format: date-time
+        last_seen:
+          type: string
+          format: date-time
+
+    Event:
+      description: EventIn + поля, которые проставляет бэкенд
+      type: object
+      required: [id, camera_id, ts, frame_id, type, bbox, confidence, severity, incident_id, count, first_seen, last_seen, status, status_history, received_at]
+      properties:
+        id:
+          type: string
+          example: evt-000001
+        camera_id:
+          type: string
+        ts:
+          type: string
+          format: date-time
+        frame_id:
+          type: integer
+        type:
+          $ref: "#/components/schemas/ViolationType"
+        bbox:
+          $ref: "#/components/schemas/BBox"
+        confidence:
+          type: number
+        track_id:
+          type: integer
+        snapshot_url:
+          type: string
+        zone_id:
+          type: string
+        severity:
+          $ref: "#/components/schemas/Severity"
+        incident_id:
+          type: string
+        count:
+          type: integer
+          minimum: 1
+        first_seen:
+          type: string
+          format: date-time
+        last_seen:
+          type: string
+          format: date-time
+        status:
+          $ref: "#/components/schemas/EventStatus"
+        status_history:
+          type: array
+          items:
+            $ref: "#/components/schemas/StatusChange"
+        received_at:
+          type: string
+          format: date-time
+
+    Camera:
+      type: object
+      required: [id, name]
+      properties:
+        id:
+          type: string
+          example: cam-1
+        name:
+          type: string
+          example: Цех 1 — пресс
+        source:
+          type: string
+          description: RTSP-адрес, путь к ролику или номер веб-камеры (0, 1…) у воркера; отдаётся только admin и воркеру, остальным - без поля
+        area:
+          type: string
+          maxLength: 64
+          description: Участок камеры (необязательно); по нему инцидент передаётся мастерам участка
+        rules:
+          type: array
+          items:
+            type: string
+          description: Какие нарушения контролировать на этой камере; нет поля - как на участке, а там нет - по умолчанию
+        rule_schedule:
+          type: [object, "null"]
+          description: |
+            Когда действует каждое правило (местное время): код типа -> {start, end} «ЧЧ:ММ»,
+            start > end - через полночь. Правила без записи действуют всегда.
+          additionalProperties:
+            $ref: "#/components/schemas/Schedule"
+
+    Area:
+      type: object
+      required: [name, cameras]
+      properties:
+        name:
+          type: string
+        rules:
+          type: array
+          items:
+            type: string
+          description: Общие правила камер участка; нет поля - по умолчанию
+        rule_schedule:
+          type: [object, "null"]
+          description: |
+            Когда действует каждое правило (местное время): код типа -> {start, end} «ЧЧ:ММ»,
+            start > end - через полночь. Правила без записи действуют всегда.
+          additionalProperties:
+            $ref: "#/components/schemas/Schedule"
+        cameras:
+          type: array
+          items:
+            type: string
+          description: Идентификаторы камер участка (только в ответе)
+
+    Schedule:
+      type: object
+      additionalProperties: false
+      required: [start, end]
+      description: Окно действия (местное время площадки); start > end - через полночь
+      properties:
+        start:
+          type: string
+          pattern: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+          example: "08:00"
+        end:
+          type: string
+          pattern: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+          example: "17:00"
+
+    Zone:
+      type: object
+      required: [id, kind, polygon]
+      properties:
+        id:
+          type: string
+          example: z-1
+        kind:
+          type: string
+          enum: [machinery, fence, height, other, danger, flammable, under_load, two_person, crowd_limit]
+          description: machinery — техника; fence — ограждение; height — высота; other — прочее; danger и flammable — прежние (вход запрещён / горючее, курить нельзя); under_load — под конвейером или подвешенным грузом; two_person — работа только вдвоём (один человек - lone_worker); crowd_limit — ограничение числа людей (превышение - overcrowding). Пороги (сколько людей, сколько секунд) - в ml/worker/rules.yaml, не в зоне
+        name:
+          type: string
+        polygon:
+          type: array
+          minItems: 3
+          items:
+            $ref: "#/components/schemas/Point"
+        schedule:
+          type: object
+          additionalProperties: false
+          required: [start, end]
+          description: Когда зона действует (местное время площадки); start > end - через полночь; нет поля - всегда
+          properties:
+            start:
+              type: string
+              pattern: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+              example: "07:55"
+            end:
+              type: string
+              pattern: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+              example: "12:00"
+
+    Metrics:
+      type: object
+      required: [camera_id, device, fps, inference_ms, ts]
+      properties:
+        camera_id:
+          type: string
+        device:
+          type: string
+          enum: [linq, cpu, gpu]
+        fps:
+          type: number
+          description: Кадров в секунду на входе правил
+        inference_ms:
+          type: number
+          description: Время инференса одного кадра
+        e2e_ms:
+          type: number
+          description: Задержка «кадр → событие в бэкенде»
+        ts:
+          type: string
+          format: date-time
+
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string

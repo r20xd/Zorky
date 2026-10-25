@@ -1,0 +1,116 @@
+{
+  "dataset": {
+    "summary": {
+      "train": {
+        "images": 5896,
+        "sources": {
+          "helmet": 3686,
+          "cigarette": 1608,
+          "fangchen": 602
+        },
+        "objects": {
+          "2": 2328,
+          "1": 4365,
+          "4": 1672,
+          "3": 883
+        }
+      },
+      "val": {
+        "images": 1267,
+        "sources": {
+          "helmet": 791,
+          "cigarette": 351,
+          "fangchen": 125
+        },
+        "objects": {
+          "2": 538,
+          "1": 969,
+          "4": 377,
+          "3": 174
+        }
+      },
+      "test": {
+        "images": 1253,
+        "sources": {
+          "helmet": 738,
+          "cigarette": 361,
+          "fangchen": 154
+        },
+        "objects": {
+          "2": 504,
+          "1": 826,
+          "4": 396,
+          "3": 207
+        }
+      }
+    },
+    "manifest_sha256": "4bdff9b9a7ab81ed0a0bde740babbe5f3a58e6f606c3fc50f671693e67b00fa6"
+  },
+  "excluded_after_grouping": {
+    "old_val_related": 24
+  },
+  "source_exports": {
+    "helmet": "75242aab215be40d9152c13a296fab7c67b7fbd43efbca8d4f33414c38df18f1",
+    "cigarette": "7f1c18e9b6b679a222488e62bfb028a0792ecdf375101b003d4ea58063722b08",
+    "fangchen": "7d31a5d69a0f85d63bd2b733b3e05f4e0718793d5a0f2cf9e315ed884b8b1643"
+  },
+  "raw": {
+    "helmet": {
+      "images": 16184,
+      "downloaded_decoded": 16184,
+      "image_errors": 0,
+      "source_splits": {
+        "test": 1583,
+        "train": 11355,
+        "val": 3246
+      },
+      "annotation_status": {
+        "source_target_labels_valid_partial_classes": 5235,
+        "unverified_negative_or_unlabelled": 10949
+      },
+      "invalid_boxes": 0,
+      "rounding_clipped": 1083
+    },
+    "cigarette": {
+      "images": 2337,
+      "downloaded_decoded": 2337,
+      "image_errors": 0,
+      "source_splits": {
+        "test": 230,
+        "train": 1640,
+        "val": 467
+      },
+      "annotation_status": {
+        "source_target_labels_valid_partial_classes": 2324,
+        "unverified_negative_or_unlabelled": 13
+      },
+      "invalid_boxes": 0,
+      "rounding_clipped": 306
+    },
+    "fangchen": {
+      "images": 1997,
+      "downloaded_decoded": 1997,
+      "image_errors": 0,
+      "source_splits": {
+        "train": 1596,
+        "val": 401
+      },
+      "annotation_status": {
+        "source_target_labels_valid_partial_classes": 881,
+        "quarantined_invalid_target_bbox": 869,
+        "unverified_negative_or_unlabelled": 247
+      },
+      "invalid_boxes": 2389,
+      "rounding_clipped": 76
+    }
+  },
+  "limitations": [
+    "Whole-frame pHash radius 4 and filename grouping do not prove scene independence",
+    "Source annotations are partial; source-aware loss and evaluation are required",
+    "Class 3 is general face protection; old respirator AP is not a general-mask baseline",
+    "Helmet source boxes may include the entire helmeted head",
+    "No manual SH17/pics images or old training replay are added"
+  ],
+  "training_completed_epochs": 0,
+  "working_weights_unchanged": true
+}

@@ -1,0 +1,8 @@
+# Гейт: линтер, тесты, проверка контракта. Ставится сам: tasks.py gate-ml
+pytest>=8
+ruff>=0.6
+jsonschema>=4.22
+pyyaml>=6
+numpy>=1.26
+opencv-python-headless>=4.10
+pillow>=10  # тесты сервиса кадров на стенде (linq/edge_service.py)

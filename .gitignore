@@ -1,0 +1,70 @@
+# Секреты — никогда в git
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Данные, веса и видео хранятся вне git
+ml/data/
+pics/
+*.ndjson
+ml/runs/
+*.pt
+*.onnx
+*.engine
+*.weights
+demo/videos/*
+!demo/videos/.gitkeep
+*.mp4
+*.avi
+*.mkv
+
+# Python
+.venv/
+.venv-gate/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+web/dist/
+web/shots/
+
+# IDE / ОС
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Материалы кейса и доступы (VPN)
+tz/
+
+# Кадры для проверки роликов и страница проверки
+demo/images/
+ml/eval/review.html
+
+# Сборка .tpu для LinQ (ml/export/build_tpu.sh)
+ml/.venv-tpu/
+ml/linq_models/
+ml/linq_calib*/
+ml/linq_programs/
+
+# профиль OpenVPN хакатона: ключ и сертификат, только локально
+*.ovpn
+linq_up.log
+.linq-run/
+ml/.venv-linq/
+demo.log
+demo.err.log
+
+linq_watch.log
+worker.log
+worker.err.log
+
+# Веса детектора СИЗ и два демо-ролика лежат в репозитории
+!models/best.onnx
+!demo/clips/*.mp4

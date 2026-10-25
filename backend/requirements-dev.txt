@@ -1,0 +1,4 @@
+# Гейт бэкенда. Ставится сам: tasks.py gate-back
+-r requirements.txt
+pytest>=8
+ruff>=0.6

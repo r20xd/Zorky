@@ -1,0 +1,84 @@
+{
+  "program": "ppe16_b1_o5_h1m.tpu",
+  "frames": 44,
+  "reference": "onnx_fp32, conf 0.3",
+  "agreement_by_tpu_conf": {
+    "0.3": {
+      "detections_onnx": 226,
+      "detections_linq": 407,
+      "frames_with_detections": {
+        "onnx": 23,
+        "linq": 17
+      },
+      "recall": 0.761,
+      "precision": 0.423,
+      "f1": 0.543,
+      "mean_iou": 0.724
+    },
+    "0.4": {
+      "detections_onnx": 226,
+      "detections_linq": 341,
+      "frames_with_detections": {
+        "onnx": 23,
+        "linq": 15
+      },
+      "recall": 0.712,
+      "precision": 0.472,
+      "f1": 0.568,
+      "mean_iou": 0.726
+    },
+    "0.5": {
+      "detections_onnx": 226,
+      "detections_linq": 281,
+      "frames_with_detections": {
+        "onnx": 23,
+        "linq": 14
+      },
+      "recall": 0.624,
+      "precision": 0.502,
+      "f1": 0.556,
+      "mean_iou": 0.724
+    },
+    "0.6": {
+      "detections_onnx": 226,
+      "detections_linq": 230,
+      "frames_with_detections": {
+        "onnx": 23,
+        "linq": 14
+      },
+      "recall": 0.544,
+      "precision": 0.535,
+      "f1": 0.539,
+      "mean_iou": 0.728
+    },
+    "0.7": {
+      "detections_onnx": 226,
+      "detections_linq": 168,
+      "frames_with_detections": {
+        "onnx": 23,
+        "linq": 12
+      },
+      "recall": 0.42,
+      "precision": 0.565,
+      "f1": 0.482,
+      "mean_iou": 0.741
+    }
+  },
+  "latency_ms": {
+    "mean": 185.4,
+    "p50": 166.3,
+    "p95": 289.3,
+    "min": 114.5
+  },
+  "single_fps": 5.39,
+  "fps_by_inflight": {
+    "1": 5.67,
+    "2": 8.85,
+    "4": 11.98
+  },
+  "onnx_detections_by_class": {
+    "1": 191,
+    "2": 31,
+    "4": 4
+  }
+}

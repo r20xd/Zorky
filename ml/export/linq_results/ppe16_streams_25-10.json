@@ -1,0 +1,171 @@
+{
+  "conditions": {
+    "program": "ppe16_b1_o5_h1m.tpu",
+    "sha256": "556964eddf5f1386eee265027a56fa862f4f81c9b0aeabee6c6b306bcdfa720e",
+    "sdk_version": "unknown",
+    "preset": "O5",
+    "batch": 1,
+    "input_size": 640,
+    "precision": "int8",
+    "warmup": "1 кадр на поток, не входит в окно",
+    "fps_offered_per_stream": 10.0,
+    "window_per_stream": 2,
+    "seconds": 20.0,
+    "loadavg_at_start": [
+      15.9912109375,
+      12.419921875,
+      12.3330078125
+    ],
+    "started_at": "2026-10-24 21:55:58 +0000",
+    "note": "стенд общий, скорость плавает: при большом разбросе повторить в другое время"
+  },
+  "runs": [
+    {
+      "streams": 1,
+      "total_fps": 8.3,
+      "fps_per_stream": 8.3,
+      "done": 166,
+      "dropped": 34,
+      "lost": 0,
+      "drop_rate": 0.17,
+      "p50_ms_worst_stream": 171.0,
+      "p95_ms_worst_stream": 262.6,
+      "max_ms": 337.8,
+      "per_stream": [
+        {
+          "offered": 200,
+          "sent": 166,
+          "done": 166,
+          "dropped": 34,
+          "lost": 0,
+          "drop_rate": 0.17,
+          "fps": 8.3,
+          "latency_ms": {
+            "mean": 182.4,
+            "p50": 171.0,
+            "p95": 262.6,
+            "max": 337.8
+          }
+        }
+      ]
+    },
+    {
+      "streams": 2,
+      "total_fps": 11.8,
+      "fps_per_stream": 5.9,
+      "done": 236,
+      "dropped": 164,
+      "lost": 0,
+      "drop_rate": 0.41,
+      "p50_ms_worst_stream": 277.8,
+      "p95_ms_worst_stream": 423.1,
+      "max_ms": 478.8,
+      "per_stream": [
+        {
+          "offered": 200,
+          "sent": 121,
+          "done": 121,
+          "dropped": 79,
+          "lost": 0,
+          "drop_rate": 0.395,
+          "fps": 6.05,
+          "latency_ms": {
+            "mean": 272.3,
+            "p50": 262.8,
+            "p95": 394.1,
+            "max": 444.2
+          }
+        },
+        {
+          "offered": 200,
+          "sent": 115,
+          "done": 115,
+          "dropped": 85,
+          "lost": 0,
+          "drop_rate": 0.425,
+          "fps": 5.75,
+          "latency_ms": {
+            "mean": 292.3,
+            "p50": 277.8,
+            "p95": 423.1,
+            "max": 478.8
+          }
+        }
+      ]
+    },
+    {
+      "streams": 4,
+      "total_fps": 15.8,
+      "fps_per_stream": 3.95,
+      "done": 316,
+      "dropped": 484,
+      "lost": 0,
+      "drop_rate": 0.605,
+      "p50_ms_worst_stream": 467.8,
+      "p95_ms_worst_stream": 732.0,
+      "max_ms": 904.3,
+      "per_stream": [
+        {
+          "offered": 200,
+          "sent": 77,
+          "done": 77,
+          "dropped": 123,
+          "lost": 0,
+          "drop_rate": 0.615,
+          "fps": 3.85,
+          "latency_ms": {
+            "mean": 481.5,
+            "p50": 467.8,
+            "p95": 732.0,
+            "max": 838.4
+          }
+        },
+        {
+          "offered": 200,
+          "sent": 79,
+          "done": 79,
+          "dropped": 121,
+          "lost": 0,
+          "drop_rate": 0.605,
+          "fps": 3.95,
+          "latency_ms": {
+            "mean": 473.1,
+            "p50": 460.3,
+            "p95": 683.1,
+            "max": 797.0
+          }
+        },
+        {
+          "offered": 200,
+          "sent": 80,
+          "done": 80,
+          "dropped": 120,
+          "lost": 0,
+          "drop_rate": 0.6,
+          "fps": 4.0,
+          "latency_ms": {
+            "mean": 458.5,
+            "p50": 442.2,
+            "p95": 699.8,
+            "max": 774.0
+          }
+        },
+        {
+          "offered": 200,
+          "sent": 80,
+          "done": 80,
+          "dropped": 120,
+          "lost": 0,
+          "drop_rate": 0.6,
+          "fps": 4.0,
+          "latency_ms": {
+            "mean": 469.1,
+            "p50": 455.2,
+            "p95": 729.9,
+            "max": 904.3
+          }
+        }
+      ]
+    }
+  ]
+}

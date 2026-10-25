@@ -1,0 +1,10 @@
+[project]
+name = "mosprom-backend"
+version = "0.1.0"
+description = "API нарушений, живая лента, камеры и зоны"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"

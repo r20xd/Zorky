@@ -1,0 +1,20 @@
+[
+  {
+    "program": "torch_resnet50_b1_o5_h1m.tpu",
+    "top1_class": 257,
+    "runs": 100,
+    "latency_ms": {
+      "mean": 30.2,
+      "p50": 26.2,
+      "p95": 49.2,
+      "min": 18.4
+    },
+    "single_fps": 33.1,
+    "inflight": 1,
+    "pipelined_fps": 31.0,
+    "worker": {
+      "worker_pid": "6",
+      "status_code": 0
+    }
+  }
+]

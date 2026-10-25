@@ -1,0 +1,11 @@
+# Датасет в формате YOLO. Данные — вне git, в ml/data/ppe/.
+# train.py сам подставляет абсолютный path: ultralytics ищет относительный в своей папке датасетов.
+path: ../data/ppe
+train: images/train
+val: images/val
+names:
+  0: person
+  1: helmet
+  2: head # голова без каски
+  3: respirator
+  4: cigarette

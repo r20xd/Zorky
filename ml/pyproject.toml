@@ -1,0 +1,10 @@
+[project]
+name = "mosprom-ml"
+version = "0.1.0"
+description = "Модель, экспорт на LinQ и инференс-воркер"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"

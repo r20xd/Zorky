@@ -1,0 +1,226 @@
+/* Движение: токены, общие анимации и отклик элементов. Внешний вид не меняет — только как он меняется.
+   Анимируем opacity и transform (цвет и тень — короткими переходами); размеры и позиции — никогда.
+   prefers-reduced-motion — в конце файла, гасит всё. */
+:root {
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+}
+
+/* ---------- общие классы ---------- */
+@keyframes fx-fade-in { from { opacity: 0; transform: translateY(6px); } }
+@keyframes fx-fade { from { opacity: 0; } }
+@keyframes fx-fade-out { to { opacity: 0; } }
+@keyframes fx-pop { 0% { transform: scale(1); } 40% { transform: scale(1.18); } 100% { transform: scale(1); } }
+@keyframes fx-pop-in { from { opacity: 0; transform: scale(0.6); } }
+@keyframes fx-shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+@keyframes fx-spin { to { transform: rotate(360deg); } }
+@keyframes fx-shimmer { from { background-position: 150% 0; } to { background-position: -50% 0; } }
+@keyframes fx-breathe { 50% { opacity: 0.55; } }
+
+.fx-fade-in { animation: fx-fade-in var(--dur-3) var(--ease-out) both; }
+.fx-pop { animation: fx-pop var(--dur-3) var(--ease-spring); }
+.fx-shake { animation: fx-shake 300ms var(--ease-in-out); }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-2) 30%, var(--border) 50%, var(--surface-2) 70%) 0 0 / 200% 100%;
+  animation: fx-shimmer 1.4s linear infinite;
+}
+
+/* ---------- картинки ---------- */
+img.fx-img { opacity: 0; transform: scale(1.03); transition: opacity var(--dur-3) var(--ease-out), transform var(--dur-3) var(--ease-out); }
+img.fx-img.is-loaded { opacity: 1; transform: none; animation: none; background: none; }
+/* приглушённый снимок решённого события остаётся приглушённым */
+.event.resolved img.fx-img.is-loaded.thumb,
+.event.false img.fx-img.is-loaded.thumb { opacity: 0.6; }
+.fx-img-error {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-2);
+  color: var(--text-3);
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* ---------- кнопки и поля ---------- */
+button,
+.journal a.button {
+  transition:
+    background-color var(--dur-1) var(--ease-out),
+    border-color var(--dur-1) var(--ease-out),
+    color var(--dur-1) var(--ease-out),
+    box-shadow var(--dur-2) var(--ease-out),
+    opacity var(--dur-2) var(--ease-out),
+    transform var(--dur-1) var(--ease-out);
+}
+button:active:not(:disabled),
+.journal a.button:active { transform: scale(0.97); }
+.master button:active:not(:disabled) { transform: scale(0.985); }
+button.primary:hover:not(:disabled) { box-shadow: 0 0 0 3px rgba(184, 230, 46, 0.18), 0 4px 16px rgba(184, 230, 46, 0.22); }
+input,
+select,
+textarea { transition: border-color var(--dur-1) var(--ease-out), box-shadow var(--dur-2) var(--ease-out), background-color var(--dur-1) var(--ease-out); }
+input:hover:not(:disabled):not(:focus),
+select:hover:not(:disabled):not(:focus) { border-color: var(--text-3); }
+a { transition: color var(--dur-1) var(--ease-out); }
+
+/* Действие в работе: кружок поверх текста, ширина кнопки не меняется. */
+button.busy { position: relative; color: transparent !important; pointer-events: none; }
+button.busy > * { visibility: hidden; }
+button.busy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 14px;
+  height: 14px;
+  margin: auto;
+  border: 2px solid currentColor;
+  border-color: var(--text) var(--text) var(--text) transparent;
+  border-radius: 50%;
+  animation: fx-spin 0.7s linear infinite;
+}
+button.primary.busy::after { border-color: var(--on-accent) var(--on-accent) var(--on-accent) transparent; }
+
+/* ---------- камеры ---------- */
+/* Под видеопотоком — «ожидаем видео», дышит; первый кадр потока его закрывает. */
+.screen img { position: relative; }
+.screen-wait {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-3);
+  font-size: 13px;
+  animation: fx-breathe 3s ease-in-out infinite;
+  pointer-events: none;
+}
+/* Камера с нарушением: медленный пульс поверх рамки (0,5 Гц). */
+@keyframes fx-alert-pulse { 50% { opacity: 0.55; } }
+.camera.alert::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 6px var(--sev-crit);
+  opacity: 0;
+  pointer-events: none;
+  animation: fx-alert-pulse 2s ease-in-out infinite;
+}
+/* Рамка нарушения: позиция — left/top из данных, анимируем только проявление и масштаб. */
+@keyframes fx-bbox-in { from { opacity: 0; transform: scale(1.04); } }
+.bbox { animation: fx-bbox-in var(--dur-2) var(--ease-out); transform-origin: center; }
+
+/* ---------- лайтбокс и окно события ---------- */
+@keyframes fx-zoom-in { from { opacity: 0; transform: scale(0.96); } }
+.lightbox { animation: fx-fade var(--dur-2) var(--ease-out); }
+.lightbox:focus { outline: none; }
+.lightbox > .detail,
+.lightbox > img { animation: fx-zoom-in var(--dur-2) var(--ease-out); }
+.lightbox.closing { animation: fx-fade-out var(--dur-2) var(--ease-in-out) forwards; pointer-events: none; }
+
+/* ---------- лента ---------- */
+/* Новое событие: въезжает сверху и на 1,2 с подсвечивается цветом своей критичности. */
+@keyframes fx-arrive { from { opacity: 0; transform: translateY(-8px); } }
+@keyframes fx-tint { from { opacity: 1; } to { opacity: 0; } }
+.event.fx-arrive { animation: fx-arrive var(--dur-3) var(--ease-out); }
+.event.fx-arrive-fade { animation: fx-fade var(--dur-3) var(--ease-out); }
+.event.fx-arrive::after,
+.event.fx-arrive-fade::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--arrive-tint, var(--text-3)) 16%, transparent);
+  box-shadow: inset 0 0 0 1px var(--arrive-tint, var(--text-3));
+  pointer-events: none;
+  animation: fx-tint 1.2s var(--ease-in-out) forwards;
+}
+.event.sev-critical, .event.critical { --arrive-tint: var(--sev-crit); }
+.event.sev-high { --arrive-tint: var(--sev-high); }
+.event.sev-medium { --arrive-tint: var(--sev-med); }
+.event.sev-low { --arrive-tint: var(--sev-low); }
+/* Смена статуса и выбор — цветом, без скачка. */
+.event { transition: background-color var(--dur-3) var(--ease-out), outline-color var(--dur-2) var(--ease-out); }
+.event.selected,
+.queue li.selected { transition: outline-color var(--dur-2) var(--ease-out); }
+.event:not(.selected) { outline: 2px solid transparent; outline-offset: -2px; }
+.status { transition: background-color var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out), box-shadow var(--dur-2) var(--ease-out); }
+.event-title { transition: color var(--dur-3) var(--ease-out); }
+/* Сводка: подсветка чипа и шеврон «ещё типов» — плавно. */
+.sev-chip { transition: background-color var(--dur-3) var(--ease-out), color var(--dur-3) var(--ease-out), box-shadow var(--dur-3) var(--ease-out); }
+.sev-chip b { font-variant-numeric: tabular-nums; }
+.more-chip svg { transition: transform var(--dur-2) var(--ease-out); }
+.more-chip[aria-expanded="true"] svg { transform: rotate(180deg); }
+.summary-group > .type-chip.zero { animation: fx-fade var(--dur-2) var(--ease-out); }
+
+/* ---------- вкладки, экраны, тосты, вход ---------- */
+/* Подчёркивание вкладки переезжает цветом (переход — из общего правила кнопок); новый экран проявляется снизу.
+   Без fill-mode: после анимации у main нет transform, fixed-окна внутри экранов считаются от окна браузера. */
+.fx-screen { animation: fx-fade-in var(--dur-3) var(--ease-out); }
+.tab-count { animation: fx-pop-in var(--dur-2) var(--ease-spring); }
+.tab-count.fx-pop { animation: fx-pop var(--dur-3) var(--ease-spring); }
+/* Тост: пружинка сверху; translateX(-50%) держит его по центру и во время въезда. */
+@keyframes fx-toast-in { from { opacity: 0; transform: translateX(-50%) translateY(-16px) scale(0.96); } }
+.toast { animation: fx-toast-in var(--dur-3) var(--ease-spring); }
+.login { animation: fx-fade-in var(--dur-3) var(--ease-out); }
+/* Ошибка входа: проявляется и один раз качается — на каждую неудачную попытку заново. */
+.login .error.fx-shake { animation: fx-fade var(--dur-2) var(--ease-out), fx-shake 300ms var(--ease-in-out); }
+.app > .error,
+.action-error,
+.temp-password { animation: fx-fade-in var(--dur-2) var(--ease-out); }
+/* Связь: баннер «нет связи» съезжает сверху, значок в шапке меняет цвет плавно. */
+@keyframes fx-slide-down { from { opacity: 0; transform: translateY(-100%); } }
+.offline-banner { animation: fx-slide-down var(--dur-3) var(--ease-out); }
+.badge { transition: background-color var(--dur-3) var(--ease-out), color var(--dur-3) var(--ease-out); }
+.badge::before { transition: box-shadow var(--dur-3) var(--ease-out); }
+
+/* ---------- журнал и проверка цепочки ---------- */
+/* Новая страница строк проявляется лесенкой (задержка — из разметки); пока грузится следующая, старая приглушена. */
+.journal .fx-row { animation: fx-fade var(--dur-2) var(--ease-out) both; }
+.journal .table-wrap,
+.journal .cards { transition: opacity var(--dur-2) var(--ease-out); }
+.journal .is-loading { opacity: 0.55; }
+@media (max-width: 640px) {
+  .journal .filters-backdrop { animation: fx-fade var(--dur-2) var(--ease-out); }
+  .journal .filters { transition: transform var(--dur-3) var(--ease-out), visibility 0s linear var(--dur-3); }
+  .journal .filters.open { transition: transform var(--dur-3) var(--ease-out), visibility 0s; }
+}
+
+/* ---------- аналитика ---------- */
+/* Полосы растут от начала, столбцы — от основания, линия графика прорисовывается; точки и тепловая карта проявляются. */
+@keyframes fx-grow-x { from { transform: scaleX(0); } }
+@keyframes fx-grow-y { from { transform: scaleY(0); } }
+@keyframes fx-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.bar-fill { transform-origin: left center; animation: fx-grow-x 600ms var(--ease-out) both; }
+.col-fill { transform-origin: center bottom; animation: fx-grow-y 600ms var(--ease-out) both; }
+.chart .line { stroke-dasharray: 1; animation: fx-draw 900ms var(--ease-in-out) both; }
+.chart .area { animation: fx-fade 900ms var(--ease-out) both; }
+.chart .dot { animation: fx-fade var(--dur-3) var(--ease-out) both; }
+.heat-cell { animation: fx-fade var(--dur-3) var(--ease-out) both; }
+
+/* ---------- мастер и зоны ---------- */
+.m-card { animation: fx-fade-in var(--dur-3) var(--ease-out); }
+/* Новая точка контура — пружинкой; первая точка, когда контур можно замкнуть, пульсирует своим правилом. */
+.zone-dot:not(.ready) { animation: fx-pop-in var(--dur-2) var(--ease-spring); }
+
+/* ---------- меньше движения: гасим всё ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* кружок «в работе» не крутится, но виден */
+  button.busy::after { border-style: dotted; }
+}

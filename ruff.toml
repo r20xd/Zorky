@@ -1,0 +1,8 @@
+# Линтер и форматтер для всего Python в репозитории (ml/, backend/, demo/, tasks.py)
+line-length = 100
+target-version = "py310"
+src = [".", "ml", "backend"]  # worker, export и app — свои модули, а не сторонние
+extend-exclude = ["web"]
+
+[lint]
+select = ["E", "F", "I", "B", "UP"]

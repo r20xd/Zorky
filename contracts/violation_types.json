@@ -1,0 +1,24 @@
+{
+  "description": "Реестр типов нарушений: код (поле type события), название, критичность. enum в events.schema.json и openapi.yaml обязан совпадать (tests/test_contract_types.py). default_on — правило включено по умолчанию (ml/worker/rules.yaml, раздел default); zone_kind — вид зоны, без которой правило ничего не найдёт.",
+  "severities": ["low", "medium", "high", "critical"],
+  "types": [
+    {"code": "no_helmet", "name": "Нет каски", "severity": "high", "default_on": true},
+    {"code": "no_respirator", "name": "Нет респиратора", "severity": "medium", "default_on": true},
+    {"code": "danger_zone", "name": "Вход в опасную зону", "severity": "high", "zone_kind": "danger", "default_on": true},
+    {"code": "smoking", "name": "Курение", "severity": "high", "default_on": true},
+    {"code": "fall", "name": "Падение человека", "severity": "critical", "default_on": true},
+    {"code": "immobile", "name": "Человек неподвижен", "severity": "critical", "default_on": true},
+    {"code": "vehicle_proximity", "name": "Опасная близость к технике", "severity": "critical", "default_on": false},
+    {"code": "running", "name": "Бег на территории", "severity": "low", "zone_kind": "machinery", "default_on": false},
+    {"code": "phone", "name": "Телефон в опасной зоне", "severity": "high", "zone_kind": "machinery", "default_on": false},
+    {"code": "fence_crossing", "name": "Пересечение ограждения", "severity": "high", "zone_kind": "fence", "default_on": true},
+    {"code": "under_load", "name": "Под грузом или конвейером", "severity": "high", "zone_kind": "under_load", "default_on": false},
+    {"code": "distress_signal", "name": "Сигнал бедствия", "severity": "high", "default_on": true},
+    {"code": "lone_worker", "name": "Одиночная работа", "severity": "high", "zone_kind": "two_person", "default_on": false},
+    {"code": "overcrowding", "name": "Превышение числа людей в зоне", "severity": "medium", "zone_kind": "crowd_limit", "default_on": false},
+    {"code": "at_height", "name": "На высоте — проверьте страховку", "severity": "medium", "zone_kind": "height", "default_on": false},
+    {"code": "loitering", "name": "Долгое нахождение в опасной зоне", "severity": "medium", "zone_kind": "danger", "default_on": false},
+    {"code": "vehicle_in_zone", "name": "Техника в запрещённой зоне", "severity": "high", "zone_kind": "danger", "default_on": false},
+    {"code": "vehicle_collision", "name": "Встречный курс двух единиц техники", "severity": "critical", "default_on": false}
+  ]
+}

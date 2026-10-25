@@ -1,0 +1,42 @@
+# Скелет: бэкенд + фронт (nginx проксирует /api на бэкенд) + мок событий.
+#   py tasks.py cert                           — один раз: сертификат в ~/.mosprom/certs
+#   docker compose up --build                  — бэкенд и фронт, фронт на https://localhost:8443
+#   docker compose --profile mock up --build   — плюс мок событий по кругу
+# Вход включается, когда есть WORKER_TOKEN или файл пользователей (~/.mosprom/data/users.json);
+# `py tasks.py run` сам создаёт токен и поднимает всё это.
+# Воркер с LinQ живёт рядом с ускорителем, а не здесь: он шлёт события в BACKEND_URL.
+# Токены берутся из .env в корне (шаблон — .env.example).
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ${MOSPROM_HOME:-${HOME}/.mosprom}/data:/data
+    environment:
+      PORT: "8080"
+      WORKER_TOKEN: ${WORKER_TOKEN:-}
+      MOSPROM_USERS: /data/users.json
+      MOSPROM_DB: /data/mosprom.db
+      MOSPROM_SNAPSHOTS: /data/snapshots
+      ESCALATE_S: ${ESCALATE_S:-60}
+
+  web:
+    build: ./web
+    ports:
+      - "8443:443"
+      - "8081:80"
+    volumes:
+      - ${MOSPROM_HOME:-${HOME}/.mosprom}/certs:/certs:ro
+    depends_on:
+      - backend
+
+  replay:
+    image: python:3.12-slim
+    profiles: ["mock"]
+    volumes:
+      - ./demo:/demo:ro
+    command: ["python", "/demo/replay_events.py", "--loop", "--backend", "http://backend:8080"]
+    restart: on-failure
+    depends_on:
+      - backend

@@ -1,0 +1,50 @@
+{
+  "1": [
+    "images/train/-1-_png_jpg.rf.26d5279aa22a5fea8dd108006dc084a0.jpg",
+    "images/train/-4171-_png_jpg.rf.76fcbfd7e5499098aa697e7d00a1dc14.jpg",
+    "images/train/001031_jpg.rf.858f325a5541734ef97fb27290136380.jpg",
+    "images/train/003108_jpg.rf.b8f61344005cdf7a185adab5fdf20054.jpg",
+    "images/train/005229_jpg.rf.31d9a633390cb656334ebbb017c6ecbe.jpg",
+    "images/train/007050_jpg.rf.a6cf4038b6e6282eb60465a0e05e4dc7.jpg",
+    "images/train/image_154_jpg.rf.eea2700eba41fa6af590612aaa5d9f4c.jpg",
+    "images/val/-1293-_png_jpg.rf.b3e14bfc7768e44f8b8c770b7a522ac9.jpg",
+    "images/val/000129_jpg.rf.d4cddd9c293ff7fc429d7a8afe5c781e.jpg",
+    "images/val/ppe_1329_jpg.rf.69153a8a5c760e4fc81eb1c8c9301960.jpg"
+  ],
+  "2": [
+    "images/train/-1x-1_jpg.rf.01b17be5648c9cfe23c8ac14254f1cc9.jpg",
+    "images/train/003535_jpg.rf.8684f57df221dc84406a0acbf26d2493.jpg",
+    "images/train/006356_jpg.rf.8c87fa963f662d753ba6749cceec4f52.jpg",
+    "images/train/IMG_3102_mp4-47_jpg.rf.8e2aa44aa03950d7d158ac6db486f9f7.jpg",
+    "images/train/Mask-detector1_mov-60_jpg.rf.5f31e1d5ee472d1e3f82f074d9f8f3a9.jpg",
+    "images/train/RPReplay_Final1667001201_MP4-66_jpg.rf.8ee508e2660fb398dc26e0d1f111790b.jpg",
+    "images/train/mask-wearing-1632931988336_png_jpg.rf.46e66c315c6e591361da2b38d43efb6a.jpg",
+    "images/train/pos_2171_jpg.rf.85dcfd11f2cf6376251a900328ab87f6.jpg",
+    "images/val/IMG_4921-2_mp4-111_jpg.rf.df2365e171e671605c0140bc82cc62de.jpg",
+    "images/val/w1240-p16x9-fa978043deff83fed485af12d16e39c61398fc30_jpg.rf.ac285bb952077507bf44869855bff84f.jpg"
+  ],
+  "3": [
+    "images/train/pped_20211102_160400.jpg",
+    "images/train/pped_20220406_204536.jpg",
+    "images/train/pped_20220406_211356.jpg",
+    "images/train/pped_20220411_102849.jpg",
+    "images/train/pped_IMG_1581.JPG",
+    "images/train/pped_IMG_1831.JPG",
+    "images/train/pped_IMG_2113.jpg",
+    "images/val/pped_20220406_210123.jpg",
+    "images/val/pped_20220411_103122.jpg",
+    "images/val/pped_IMG_2211.jpg"
+  ],
+  "4": [
+    "images/train/cigdet_smoking_0001.jpg",
+    "images/train/cigdet_smoking_0078.jpg",
+    "images/train/cigdet_smoking_0148.jpg",
+    "images/train/cigdet_smoking_0221.jpg",
+    "images/train/cigdet_smoking_0295.jpg",
+    "images/train/cigdet_smoking_0371.jpg",
+    "images/train/cigdet_smoking_0455.jpg",
+    "images/train/cigdet_smoking_0538.jpg",
+    "images/val/cigdet_smoking_0321.jpg",
+    "images/val/cigdet_smoking_0559.jpg"
+  ]
+}
